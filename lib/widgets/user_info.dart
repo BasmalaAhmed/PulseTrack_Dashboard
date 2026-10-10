@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
+import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({super.key});
@@ -23,16 +24,7 @@ class UserInfo extends StatelessWidget {
           Positioned(
             bottom: 0,
             right: 0,
-            child: Container(
-              height: 12,
-              width: 12,
-              decoration: const ShapeDecoration(
-                shape: OvalBorder(
-                  side: BorderSide(color: Color(0XFF131924), width: 2),
-                ),
-                color: Color(0XFF10B981),
-              ),
-            ),
+            child: CustomDot(height: 12, width: 12, color: Color(0XFF10B981),)
           ),
         ],
       ),
