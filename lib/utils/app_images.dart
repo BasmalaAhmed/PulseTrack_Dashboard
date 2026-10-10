@@ -2,7 +2,7 @@ class AppImages {
   
   static const String activity = "assets/images/activity.svg";
 
-  static const String admin = "assets/images/admin.svg";
+  static const String admin = "assets/images/Gemini_Generated_Image_xvu060xvu060xvu0.jpg";
 
   static const String analytics = "assets/images/analytics.svg";
 

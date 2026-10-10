@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/widgets/adaptive_layout.dart';
+import 'package:pulse_track_dashboard/widgets/desktop_dashboard_layout.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});
@@ -8,9 +9,9 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: AdaptiveLayout(
-        mobileLayout: (context) => SizedBox(),
-        tabletLayout: (context) => SizedBox(),
-        desktopLayout: (context) => SizedBox(),
+        mobileLayout: (context) => const SizedBox(),
+        tabletLayout: (context) => const SizedBox(),
+        desktopLayout: (context) =>const DesktopDashboardLayout(),
       ),
     );
   }
