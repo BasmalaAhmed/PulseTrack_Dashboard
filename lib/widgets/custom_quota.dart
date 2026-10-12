@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
+import 'package:pulse_track_dashboard/widgets/loading_bar.dart';
 
 class CustomQuota extends StatelessWidget {
   const CustomQuota({super.key});
@@ -35,26 +36,7 @@ class CustomQuota extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 8),
-            Row(
-              children: [
-                Container(
-                  width: 150,
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: const Color(0XFFF59E0B),
-                    borderRadius: BorderRadius.circular(9),
-                  ),
-                ),
-                Container(
-                  width: 34,
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: const Color(0XFF1F2937),
-                    borderRadius: BorderRadius.circular(9),
-                  ),
-                ),
-              ],
-            ),
+            LoadingBar(),
             const SizedBox(height: 8),
             Row(
               children: [

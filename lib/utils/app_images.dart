@@ -35,5 +35,9 @@ class AppImages {
   static const String user2 = "assets/images/user2.svg";
 
   static const String user3 = "assets/images/user3.svg";
+
+  static const String check = "assets/images/check.svg";
+
+  static const String notification = "assets/images/notification.svg";
 }
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
 class CustomNotificationButton extends StatelessWidget {
@@ -6,21 +8,22 @@ class CustomNotificationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color(0XFF1A2232),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Color(0XFF232B3B)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Stack(
-          children: [
-            Icon(Icons.notifications_rounded, color: Color(0XFFCBD5E1)),
-            Positioned(top: -1, right: 1, child: CustomDot(height: 12, width: 12)),
-          ],
+    return Stack(
+      alignment: AlignmentGeometry.center,
+      children: [
+        Container(
+          height: 36,
+          width: 36,
+          decoration: BoxDecoration(
+            color: Color(0XFF1A2232),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: Color(0XFF232B3B)),
+          ),
         ),
-      ),
+
+        SvgPicture.asset(AppImages.notification),
+        Positioned(top: 6, right: 8, child: CustomDot(height: 12, width: 12)),
+      ],
     );
   }
 }

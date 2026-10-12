@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulse_track_dashboard/widgets/cards_list.dart';
 import 'package:pulse_track_dashboard/widgets/custom_drawer.dart';
 import 'package:pulse_track_dashboard/widgets/custom_header.dart';
 
@@ -16,6 +17,10 @@ class DesktopDashboardLayout extends StatelessWidget {
           child: Column(
             children: [
               CustomHeader(),
+              Padding(
+                padding: EdgeInsets.all(32),
+                child: CardsList(),
+              ),
             ],
           ))
       ],

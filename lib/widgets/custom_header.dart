@@ -39,32 +39,41 @@ class CustomHeader extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            SizedBox(height: 46, width: 240, child: CustomTextField()),
-            const SizedBox(width: 10),
-            CustomDropDownMenu(),
-            const SizedBox(width: 10),
-            CustomNotificationButton(),
-            const SizedBox(width: 10),
-            SizedBox(
-              height: 20,
-              width: 5,
-              child: VerticalDivider(color: Color(0XFF232B3B)),
-            ),
-            const SizedBox(width: 10),
-            CustomButton(
-              title: 'Task',
-              buttonColor: Color(0XFF1E2638),
-              style: AppStyles.semibold12Style.copyWith(
-                color: Color(0XFFF1F5F9),
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: 36
               ),
-              iconColor: Color(0XFFCBD5E1),
-            ),
-            const SizedBox(width: 10),
-            CustomButton(
-              title: 'New Project',
-              buttonColor: Color(0XFFF59E0B),
-              style: AppStyles.bold12Style.copyWith(color: Color(0XFF020617)),
-              iconColor: Color(0XFF020617),
+              child: Row(
+                children: [
+                  SizedBox( width: 240, child: CustomTextField()),
+                  const SizedBox(width: 10),
+                  CustomDropDownMenu(),
+                  const SizedBox(width: 10),
+                  CustomNotificationButton(),
+                  const SizedBox(width: 10),
+                  SizedBox(
+                    height: 20,
+                    width: 5,
+                    child: VerticalDivider(color: Color(0XFF232B3B)),
+                  ),
+                  const SizedBox(width: 10),
+                  CustomButton(
+                    title: 'Task',
+                    buttonColor: Color(0XFF1E2638),
+                    style: AppStyles.semibold12Style.copyWith(
+                      color: Color(0XFFF1F5F9),
+                    ),
+                    iconColor: Color(0XFFCBD5E1),
+                  ),
+                  const SizedBox(width: 10),
+                  CustomButton(
+                    title: 'New Project',
+                    buttonColor: Color(0XFFF59E0B),
+                    style: AppStyles.bold12Style.copyWith(color: Color(0XFF020617)),
+                    iconColor: Color(0XFF020617),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

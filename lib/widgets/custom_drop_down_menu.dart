@@ -17,7 +17,6 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
   @override
   Widget build(BuildContext context) {
     return DropdownMenu<String>(
-      width: 134,
       initialSelection: _selectedValue,
       requestFocusOnTap: true,
       selectOnly: true,
@@ -41,18 +40,20 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
       textStyle: AppStyles.medium12Style.copyWith(color: Color(0XFFE2E8F0)),
       decorationBuilder: (context, controller) {
         return InputDecoration(
+          isCollapsed: true,
+    contentPadding: EdgeInsets.zero,
           filled: true,
           fillColor: Color(0XFF1A2232),
 
           prefixIcon: Icon(
             Icons.calendar_today_rounded,
-            size: 18,
+            size: 16,
             color: AppColors.kGrey94Color,
           ),
           suffixIcon: Icon(
             Icons.keyboard_arrow_down_rounded,
             color: AppColors.kGrey94Color,
-            size: 20,
+            size: 18,
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
