@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/widgets/cards_list.dart';
 import 'package:pulse_track_dashboard/widgets/custom_drawer.dart';
 import 'package:pulse_track_dashboard/widgets/custom_header.dart';
+import 'package:pulse_track_dashboard/widgets/weekly_productivity_section.dart';
 
 class DesktopDashboardLayout extends StatelessWidget {
   const DesktopDashboardLayout({super.key});
@@ -14,14 +15,27 @@ class DesktopDashboardLayout extends StatelessWidget {
           child: CustomDrawer()),
         Expanded(
           flex: 5,
-          child: Column(
-            children: [
-              CustomHeader(),
-              Padding(
-                padding: EdgeInsets.all(32),
-                child: CardsList(),
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                CustomHeader(),
+                SizedBox(height: 24,),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: CardsList(),
+                ),
+                SizedBox(height: 24,),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: Row(
+                    children: [
+                      Expanded(child: WeeklyProductivitySection()),
+                      SizedBox()
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ))
       ],
     );
