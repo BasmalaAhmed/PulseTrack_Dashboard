@@ -43,13 +43,13 @@ class WeeklyProductivityChart extends StatelessWidget {
             barRods: [
               BarChartRodData(
                 toY: planned[index],
-                width: 20,
+                width: 14,
                 color: plannedColor,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(5)),
               ),
               BarChartRodData(
                 toY: completed[index],
-                width: 20,
+                width: 14,
                 color: isWednesday ? highlightColor : completedColor,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(5)),
               ),
@@ -59,7 +59,7 @@ class WeeklyProductivityChart extends StatelessWidget {
         gridData: FlGridData(
           show: true,
           drawVerticalLine: false,
-          horizontalInterval: 15,
+          horizontalInterval: 8,
           getDrawingHorizontalLine: (value) {
             return FlLine(color: gridColor, strokeWidth: 1);
           },
@@ -70,7 +70,7 @@ class WeeklyProductivityChart extends StatelessWidget {
           leftTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
-              reservedSize: 48,
+              reservedSize: 46,
               interval: 15,
               getTitlesWidget: (value, meta) {
                 return Text(
@@ -111,18 +111,19 @@ class WeeklyProductivityChart extends StatelessWidget {
         ),
         borderData: FlBorderData(
           show: true,
-          border: Border(
-            bottom: BorderSide(color: gridColor),
-          ),
+          border: Border(bottom: BorderSide(color: gridColor)),
         ),
         barTouchData: BarTouchData(
           enabled: true,
           touchTooltipData: BarTouchTooltipData(
             getTooltipItem: (group, groupIndex, rod, rodIndex) {
-              return BarTooltipItem('${rod.toY.toInt()} SP', AppStyles.bold12Style.copyWith(color: AppColors.kNeutralColor, ));
+              return BarTooltipItem(
+                '${rod.toY.toInt()} SP',
+                AppStyles.bold12Style.copyWith(color: AppColors.kNeutralColor),
+              );
             },
-          )
-        )
+          ),
+        ),
       ),
     );
   }
