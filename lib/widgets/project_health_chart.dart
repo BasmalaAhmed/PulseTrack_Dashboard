@@ -63,19 +63,19 @@ class _ProjectHealthChartState extends State<ProjectHealthChart> {
         PieChartSectionData(
           value: 9,
           color: Color(0XFF059669),
-          radius: activeIndex == 0 ? 26 : 20,
+          radius: activeIndex == 0 ? 28 : 20,
           showTitle: false,
         ),
         PieChartSectionData(
           value: 3,
           color: Color(0XFFF59E0B),
-          radius: activeIndex == 1 ? 26 : 20,
+          radius: activeIndex == 1 ? 28 : 20,
           showTitle: false,
         ),
         PieChartSectionData(
           value: 2,
           color: Color(0XFFEF4444),
-          radius: activeIndex == 2 ? 26 : 20,
+          radius: activeIndex == 2 ? 28 : 20,
           showTitle: false,
         ),
       ],
