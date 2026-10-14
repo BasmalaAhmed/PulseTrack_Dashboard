@@ -16,7 +16,7 @@ class PieChartIndicatorItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Row(
         children: [
-          CustomDot(height: 12, width: 12, color: dotColor,),
+          CustomDot(height: 10, width: 10, color: dotColor,),
           SizedBox(width: 10,),
           Text(title, style: AppStyles.medium12Style.copyWith(color: Color(0XFFCBD5E1),),),
           Spacer(),

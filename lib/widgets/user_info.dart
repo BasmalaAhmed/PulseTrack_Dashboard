@@ -24,7 +24,7 @@ class UserInfo extends StatelessWidget {
           Positioned(
             bottom: 0,
             right: 0,
-            child: CustomDot(height: 12, width: 12, color: Color(0XFF10B981),)
+            child: CustomDot(height: 12, width: 12, color: Color(0XFF10B981), isBorder: true,)
           ),
         ],
       ),

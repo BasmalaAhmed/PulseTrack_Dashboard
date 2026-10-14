@@ -22,7 +22,7 @@ class CustomNotificationButton extends StatelessWidget {
         ),
 
         SvgPicture.asset(AppImages.notification),
-        Positioned(top: 6, right: 8, child: CustomDot(height: 12, width: 12)),
+        Positioned(top: 6, right: 8, child: CustomDot(height: 12, width: 12, isBorder: true,)),
       ],
     );
   }
