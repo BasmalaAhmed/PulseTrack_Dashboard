@@ -19,41 +19,39 @@ class PriorityTasksSection extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(24),
-            child: Container(
-              decoration: BoxDecoration(),
-              child: Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Priority Tasks & Milestones',
-                        style: AppStyles.bold14Style.copyWith(
-                          color: Color(0XFFF8FAFC),
-                        ),
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Priority Tasks & Milestones',
+                      style: AppStyles.bold14Style.copyWith(
+                        color: Color(0XFFF8FAFC),
                       ),
-                      SizedBox(height: 2),
-                      Text(
-                        'Immediate action items requiring lead sign-off',
-                        style: AppStyles.regular12Style.copyWith(
-                          color: AppColors.kGrey94Color,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Spacer(),
-                  Text(
-                    'View All (38)',
-                    style: AppStyles.semibold12Style.copyWith(
-                      color: Color(0XFFFBBF24),
                     ),
+                    SizedBox(height: 2),
+                    Text(
+                      'Immediate action items requiring lead sign-off',
+                      style: AppStyles.regular12Style.copyWith(
+                        color: AppColors.kGrey94Color,
+                      ),
+                    ),
+                  ],
+                ),
+                Spacer(),
+                Text(
+                  'View All (38)',
+                  style: AppStyles.semibold12Style.copyWith(
+                    color: Color(0XFFFBBF24),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           Divider(
             color: Color(0XFF232B3B),
+            height: 0,
           ),
           PriorityTasksListView(),
           Container(
