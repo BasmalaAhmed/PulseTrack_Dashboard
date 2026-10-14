@@ -56,9 +56,15 @@ class PriorityTasksSection extends StatelessWidget {
             color: Color(0XFF232B3B),
           ),
           PriorityTasksListView(),
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: CustomDottedButton(),
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0XFF131924),
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(12))
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: CustomDottedButton(),
+            ),
           ),
         ],
       ),
