@@ -7,12 +7,28 @@ class PriorityTasksAndRecentActivitySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(child: PriorityTasksSection()),
-        SizedBox(width: 24,),
-        Expanded(child: RecentActivitySection()),
-      ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isWide = constraints.maxWidth >= 800;
+        if (isWide) {
+          return IntrinsicHeight(
+            child: Row(
+              children: [
+                Expanded(child: PriorityTasksSection()),
+                SizedBox(width: 24,),
+                Expanded(child: RecentActivitySection()),
+              ],
+            ),
+          );
+        }
+        return Column(
+          children: [
+            PriorityTasksSection(),
+            SizedBox(height: 24,),
+            RecentActivitySection(),
+          ],
+        );
+      }
     );
   }
 }

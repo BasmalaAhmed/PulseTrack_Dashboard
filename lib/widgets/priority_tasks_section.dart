@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dotted_button.dart';
-import 'package:pulse_track_dashboard/widgets/priority_tasks_list_view.dart';
+import 'package:pulse_track_dashboard/widgets/priority_tasks_list.dart';
 
 class PriorityTasksSection extends StatelessWidget {
   const PriorityTasksSection({super.key});
@@ -53,7 +53,11 @@ class PriorityTasksSection extends StatelessWidget {
             color: Color(0XFF232B3B),
             height: 0,
           ),
-          PriorityTasksListView(),
+          Expanded(
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: PriorityTasksList()),
+          ),
           Container(
             decoration: BoxDecoration(
               color: Color(0XFF131924),

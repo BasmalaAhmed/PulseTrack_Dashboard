@@ -21,7 +21,7 @@ class RecentActivityList extends StatelessWidget {
             fontFamily: 'JetBrains_Mono',
             icon: AppImages.merge,
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 18),
           RecentActivityItem(
             user: 'Milestone Achieved: ',
             operation: '',
@@ -34,7 +34,7 @@ class RecentActivityList extends StatelessWidget {
             iconColor: Color(0XFF10B981).withValues(alpha: 0.15),
             iconBorder: Color(0XFF10B981).withValues(alpha: 0.3),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 18),
           RecentActivityItem(
             user: 'Marcus Bell ',
             operation: 'approved specs for ',

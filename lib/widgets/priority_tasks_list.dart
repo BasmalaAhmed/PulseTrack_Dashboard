@@ -3,8 +3,8 @@ import 'package:pulse_track_dashboard/models/priority_tasks_list_item_model.dart
 import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/widgets/priority_tasks_list_item.dart';
 
-class PriorityTasksListView extends StatelessWidget {
-  const PriorityTasksListView({super.key});
+class PriorityTasksList extends StatelessWidget {
+  const PriorityTasksList({super.key});
 
   static List<PriorityTasksListItemModel> tasks = [
     PriorityTasksListItemModel(
@@ -43,12 +43,11 @@ class PriorityTasksListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: tasks.length,
-      itemBuilder: (context, index) {
-        return PriorityTasksListItem(priorityTasksListItemModel: tasks[index]);
-      },
+    return Column(
+      children: [
+        for (final task in tasks)
+          PriorityTasksListItem(priorityTasksListItemModel: task),
+      ],
     );
   }
 }

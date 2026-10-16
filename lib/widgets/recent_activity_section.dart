@@ -42,38 +42,46 @@ class RecentActivitySection extends StatelessWidget {
                 ),
                 Spacer(),
                 Container(
-            decoration: BoxDecoration(
-              color: Color(0XFF10B981).withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(30),
-              border: Border.all(
-                color: Color(0XFF10B981).withValues(alpha: 0.2),
-              ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-              child: Row(
-                children: [
-                  CustomDot(height: 8, width: 8, color: Color(0XFF34D399),),
-                  SizedBox(width: 6,),
-                  Text(
-                    'Live Feed',
-                    style: AppStyles.semibold11Style.copyWith(
-                      color: Color(0XFF34D399),
+                  decoration: BoxDecoration(
+                    color: Color(0XFF10B981).withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(
+                      color: Color(0XFF10B981).withValues(alpha: 0.2),
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 2,
+                    ),
+                    child: Row(
+                      children: [
+                        CustomDot(
+                          height: 8,
+                          width: 8,
+                          color: Color(0XFF34D399),
+                        ),
+                        SizedBox(width: 6),
+                        Text(
+                          'Live Feed',
+                          style: AppStyles.semibold11Style.copyWith(
+                            color: Color(0XFF34D399),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
-          Divider(
-            color: Color(0XFF232B3B),
-            height: 0,
+          Divider(color: Color(0XFF232B3B), height: 0),
+          Expanded(
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: RecentActivityList(),
+            ),
           ),
-          RecentActivityList(),
-          SizedBox(height: 44,),
           RecentActivityFooter(),
         ],
       ),

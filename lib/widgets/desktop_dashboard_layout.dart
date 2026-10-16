@@ -19,9 +19,8 @@ class DesktopDashboardLayout extends StatelessWidget {
             child: Column(
               children: [
                 CustomHeader(),
-                SizedBox(height: 24),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  padding: EdgeInsets.all(24),
                   child: Column(
                     children: [
                       CardsList(),
