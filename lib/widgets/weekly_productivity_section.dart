@@ -69,19 +69,18 @@ class WeeklyProductivitySection extends StatelessWidget {
             ),
             SizedBox(height: 320, child: WeeklyProductivityChart()),
             SizedBox(height: 16,),
-
-            Row(
+            Wrap(
+              spacing: 24,
+              runSpacing: 8,
               children: [
                 BarChartIndicatorItem(
                   title: 'Delivered Story Points',
                   color: Color(0xFFCBD5E1),
                 ),
-                SizedBox(width: 24),
                 BarChartIndicatorItem(
                   title: 'Peak Sprint Velocity',
                   color: Color(0XFFFBBF24),
                 ),
-                SizedBox(width: 24),
                 BarChartIndicatorItem(
                   title: 'Committed Target',
                   titleColor: Color(0XFF94A3B8),
