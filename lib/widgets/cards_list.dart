@@ -28,6 +28,7 @@ class CardsList extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               child: Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(
                     Icons.arrow_upward_rounded,
@@ -45,8 +46,15 @@ class CardsList extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 18),
-          Text('4 near deadlines', style: AppStyles.regular11Style),
+          const SizedBox(width: 12),
+          Flexible(
+            child: Text(
+              '4 near deadlines',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppStyles.regular11Style,
+            ),
+          ),
         ],
       ),
     ),
@@ -58,19 +66,25 @@ class CardsList extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text('12 completed today', style: AppStyles.regular11Style,),
-              Spacer(),
-              Text('78%' , style: AppStyles.semibold11Style.copyWith(
-                fontFamily: 'JetBrains_Mono',
-                color: Color(0XFFE2E8F0)
-              ),)
+              Expanded(
+                child: Text(
+                  '12 completed today',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppStyles.regular11Style,
+                ),
+              ),
+              Text(
+                '78%',
+                style: AppStyles.semibold11Style.copyWith(
+                  fontFamily: 'JetBrains_Mono',
+                  color: Color(0XFFE2E8F0),
+                ),
+              ),
             ],
           ),
-          const SizedBox(height: 6,),
-          LoadingBar(
-            loaded: 190,
-            remaining: 55,
-          ),
+          const SizedBox(height: 6),
+          LoadingBar(loaded: 190, remaining: 55),
         ],
       ),
     ),
@@ -85,8 +99,17 @@ class CardsList extends StatelessWidget {
       widget: Row(
         children: [
           SvgPicture.asset(AppImages.check),
-          SizedBox(width: 4,),
-          Text('+4.8% vs last cycle', style: AppStyles.semibold11Style.copyWith(color: Color(0XFF34D399)),)
+          SizedBox(width: 4),
+          Flexible(
+            child: Text(
+              '+4.8% vs last cycle',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppStyles.semibold11Style.copyWith(
+                color: Color(0XFF34D399),
+              ),
+            ),
+          ),
         ],
       ),
     ),
@@ -114,8 +137,15 @@ class CardsList extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 18),
-          Text('velocity acceleration', style: AppStyles.regular11Style),
+          const SizedBox(width: 12),
+          Flexible(
+            child: Text(
+              'velocity acceleration',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppStyles.regular11Style,
+            ),
+          ),
         ],
       ),
     ),
@@ -123,16 +153,29 @@ class CardsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(child: CustomCard(cardModel: items[0])),
-        const SizedBox(width: 20),
-        Expanded(child: CustomCard(cardModel: items[1])),
-        const SizedBox(width: 20),
-        Expanded(child: CustomCard(cardModel: items[2])),
-        const SizedBox(width: 20),
-        Expanded(child: CustomCard(cardModel: items[3])),
-      ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final columns = constraints.maxWidth >= 900
+            ? 4
+            : constraints.maxWidth >= 600
+            ? 2
+            : 1;
+        const gap = 20.0;
+        final itemWidth =
+            (constraints.maxWidth - gap * (columns - 1)) / columns;
+        return Wrap(
+          spacing: gap,
+          runSpacing: gap,
+          children: [
+            for (final item in items)
+              SizedBox(
+                width: itemWidth,
+                height: 160,
+                child: CustomCard(cardModel: item),
+              ),
+          ],
+        );
+      },
     );
   }
 }

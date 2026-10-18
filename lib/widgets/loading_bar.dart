@@ -9,20 +9,26 @@ class LoadingBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
               children: [
-                Container(
-                  width: loaded ?? 150,
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: const Color(0XFFF59E0B),
-                    borderRadius: BorderRadius.circular(9),
+                Expanded(
+                  flex: (loaded ?? 150).round(),
+                  child: Container(
+                    width: loaded ?? 150,
+                    height: 6,
+                    decoration: BoxDecoration(
+                      color: const Color(0XFFF59E0B),
+                      borderRadius: BorderRadius.circular(9),
+                    ),
                   ),
                 ),
-                Container(
-                  width: remaining ?? 34,
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: const Color(0XFF1F2937),
-                    borderRadius: BorderRadius.circular(9),
+                Expanded(
+                  flex: (remaining ?? 34).round(),
+                  child: Container(
+                    width: remaining ?? 34,
+                    height: 6,
+                    decoration: BoxDecoration(
+                      color: const Color(0XFF1F2937),
+                      borderRadius: BorderRadius.circular(9),
+                    ),
                   ),
                 ),
               ],
