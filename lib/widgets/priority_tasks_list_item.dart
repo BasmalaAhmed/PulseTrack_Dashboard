@@ -43,71 +43,72 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
               activeColor: Color(0XFFF59E0B),
             ),
             SizedBox(width: 12),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.priorityTasksListItemModel.title,
-                  style: AppStyles.semibold12Style.copyWith(
-                    color: isChecked
-                        ? AppColors.kGrey64Color
-                        : Color(0XFFE2E8F0),
-                    decoration: isChecked ? TextDecoration.lineThrough : null,
-                    decorationColor: AppColors.kGrey64Color,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.priorityTasksListItemModel.title,
+                    style: AppStyles.semibold12Style.copyWith(
+                      color: isChecked
+                          ? AppColors.kGrey64Color
+                          : Color(0XFFE2E8F0),
+                      decoration: isChecked ? TextDecoration.lineThrough : null,
+                      decorationColor: AppColors.kGrey64Color,
+                    ),
                   ),
-                ),
-                SizedBox(height: 4),
-                Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Color(0XFF1E2638),
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: Color(0XFF283347)),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 2,
+                  SizedBox(height: 4),
+                  Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0XFF1E2638),
+                          borderRadius: BorderRadius.circular(4),
+                          border: Border.all(color: Color(0XFF283347)),
                         ),
-                        child: Text(
-                          widget.priorityTasksListItemModel.subject,
-                          style: AppStyles.medium11Style.copyWith(
-                            color: isChecked
-                                ? AppColors.kGrey94Color
-                                : Color(0XFFCBD5E1),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 2,
+                          ),
+                          child: Text(
+                            widget.priorityTasksListItemModel.subject,
+                            style: AppStyles.medium11Style.copyWith(
+                              color: isChecked
+                                  ? AppColors.kGrey94Color
+                                  : Color(0XFFCBD5E1),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 8),
-                    isChecked
-                        ? FaIcon(
-                            FontAwesomeIcons.check,
-                            color: Color(0XFF34D399),
-                            size: 12,
-                          )
-                        : FaIcon(
-                            FontAwesomeIcons.calendar,
-                            color: AppColors.kGrey94Color,
-                            size: 12,
-                          ),
-                    SizedBox(width: 4),
-                    Text(
+                      SizedBox(width: 8),
                       isChecked
-                          ? 'Resolved'
-                          : widget.priorityTasksListItemModel.date,
-                      style: AppStyles.regular11Style.copyWith(
-                        color: isChecked
-                            ? Color(0XFF34D399)
-                            : AppColors.kGrey94Color,
+                          ? FaIcon(
+                              FontAwesomeIcons.check,
+                              color: Color(0XFF34D399),
+                              size: 12,
+                            )
+                          : FaIcon(
+                              FontAwesomeIcons.calendar,
+                              color: AppColors.kGrey94Color,
+                              size: 12,
+                            ),
+                      SizedBox(width: 4),
+                      Text(
+                        isChecked
+                            ? 'Resolved'
+                            : widget.priorityTasksListItemModel.date,
+                        style: AppStyles.regular11Style.copyWith(
+                          color: isChecked
+                              ? Color(0XFF34D399)
+                              : AppColors.kGrey94Color,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
-            Spacer(),
             CustomPriority(
               color: isChecked
                   ? Color(0XFF10B981)

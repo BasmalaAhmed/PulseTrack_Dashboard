@@ -26,7 +26,7 @@ class RecentActivityList extends StatelessWidget {
             user: 'Milestone Achieved: ',
             operation: '',
             details:
-                'All 18 blocker criteria met for early enterprise customer cohort \nrelease.',
+                'All 18 blocker criteria met for early enterprise customer cohort release.',
             msg: 'API v2 Gateway Beta',
             msgColor: Color(0XFF34D399),
             time: '45m ago',
@@ -49,7 +49,7 @@ class RecentActivityList extends StatelessWidget {
             user: 'Alex Chen ',
             operation: 'pushed 4 commits to ',
             details:
-                'perf(engine): optimize telemetry batch ingestion \nstream to 4ms.',
+                'perf(engine): optimize telemetry batch ingestion stream to 4ms.',
             msg: 'main',
             time: '4h ago',
             fontFamily: 'JetBrains_Mono',

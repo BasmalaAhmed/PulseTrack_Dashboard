@@ -5,7 +5,8 @@ import 'package:pulse_track_dashboard/widgets/custom_dotted_button.dart';
 import 'package:pulse_track_dashboard/widgets/priority_tasks_list.dart';
 
 class PriorityTasksSection extends StatelessWidget {
-  const PriorityTasksSection({super.key});
+  const PriorityTasksSection({super.key, this.fillHeight = false});
+  final bool fillHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -21,25 +22,26 @@ class PriorityTasksSection extends StatelessWidget {
             padding: const EdgeInsets.all(24),
             child: Row(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Priority Tasks & Milestones',
-                      style: AppStyles.bold14Style.copyWith(
-                        color: Color(0XFFF8FAFC),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Priority Tasks & Milestones',
+                        style: AppStyles.bold14Style.copyWith(
+                          color: Color(0XFFF8FAFC),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 2),
-                    Text(
-                      'Immediate action items requiring lead sign-off',
-                      style: AppStyles.regular12Style.copyWith(
-                        color: AppColors.kGrey94Color,
+                      SizedBox(height: 2),
+                      Text(
+                        'Immediate action items requiring lead sign-off',
+                        style: AppStyles.regular12Style.copyWith(
+                          color: AppColors.kGrey94Color,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                Spacer(),
                 Text(
                   'View All (38)',
                   style: AppStyles.semibold12Style.copyWith(
@@ -49,19 +51,17 @@ class PriorityTasksSection extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
-            color: Color(0XFF232B3B),
-            height: 0,
-          ),
-          Expanded(
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: PriorityTasksList()),
-          ),
+          Divider(color: Color(0XFF232B3B), height: 0),
+          if (fillHeight)
+            Expanded(
+              child: Align(alignment: Alignment.topCenter, child: PriorityTasksList()),
+            )
+          else
+            PriorityTasksList(),
           Container(
             decoration: BoxDecoration(
               color: Color(0XFF131924),
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(12))
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
             ),
             child: Padding(
               padding: const EdgeInsets.all(12),

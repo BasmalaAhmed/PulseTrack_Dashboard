@@ -17,13 +17,15 @@ class RecentActivityFooter extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         child: Row(
           children: [
-            Text(
-              'Audited by PulseTrack Governance Engine',
-              style: AppStyles.regular11Style.copyWith(
-                color: AppColors.kGrey94Color,
+            Expanded(
+              child: Text(
+                'Audited by PulseTrack Governance Engine',
+                style: AppStyles.regular11Style.copyWith(
+                  color: AppColors.kGrey94Color,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-            Spacer(),
             Text(
               'View Audit Logs',
               style: AppStyles.semibold12Style.copyWith(color: Color(0XFFE2E8F0)),

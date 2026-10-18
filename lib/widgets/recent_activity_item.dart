@@ -24,7 +24,7 @@ class RecentActivityItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start ,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: 28,
@@ -41,42 +41,45 @@ class RecentActivityItem extends StatelessWidget {
           ),
         ),
         SizedBox(width: 12),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(
-                  user,
-                  style: AppStyles.semibold12Style.copyWith(
-                    color: Color(0XFFE2E8F0),
-                  ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: user,
+                      style: AppStyles.semibold12Style.copyWith(
+                        color: Color(0XFFE2E8F0),
+                      ),
+                    ),
+                    TextSpan(
+                      text: operation,
+                      style: AppStyles.semibold12Style.copyWith(
+                        color: AppColors.kGrey94Color,
+                      ),
+                    ),
+                    TextSpan(
+                      text: msg,
+                      style: AppStyles.medium11Style.copyWith(
+                        color: msgColor ?? Color(0XFFFBBF24),
+                        fontFamily: fontFamily,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  operation,
-                  style: AppStyles.semibold12Style.copyWith(
-                    color: AppColors.kGrey94Color,
-                  ),
-                ),
-                Text(
-                  msg,
-                  style: AppStyles.medium11Style.copyWith(
-                    color: msgColor ?? Color(0XFFFBBF24),
-                    fontFamily: fontFamily,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 2),
-            Text(
-              details,
-              style: AppStyles.regular12Style.copyWith(
-                color: AppColors.kGrey94Color,
               ),
-            ),
-          ],
+              SizedBox(height: 2),
+              Text(
+                details,
+                style: AppStyles.regular12Style.copyWith(
+                  color: AppColors.kGrey94Color,
+                ),
+              ),
+            ],
+          ),
         ),
-        Spacer(),
         Text(
           time,
           style: AppStyles.regular11Style.copyWith(

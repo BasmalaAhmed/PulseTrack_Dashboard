@@ -13,10 +13,11 @@ class PriorityTasksAndRecentActivitySection extends StatelessWidget {
         if (isWide) {
           return IntrinsicHeight(
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(child: PriorityTasksSection()),
+                Expanded(child: PriorityTasksSection(fillHeight: true,)),
                 SizedBox(width: 24,),
-                Expanded(child: RecentActivitySection()),
+                Expanded(child: RecentActivitySection(fillHeight: true,)),
               ],
             ),
           );
