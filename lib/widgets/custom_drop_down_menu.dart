@@ -17,6 +17,7 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
   @override
   Widget build(BuildContext context) {
     return DropdownMenu<String>(
+      expandedInsets: EdgeInsets.zero,
       initialSelection: _selectedValue,
       requestFocusOnTap: true,
       selectOnly: true,
@@ -40,20 +41,28 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
       textStyle: AppStyles.medium12Style.copyWith(color: Color(0XFFE2E8F0)),
       decorationBuilder: (context, controller) {
         return InputDecoration(
+          isDense: true,
           isCollapsed: true,
-    contentPadding: EdgeInsets.zero,
+          contentPadding: EdgeInsets.zero,
           filled: true,
           fillColor: Color(0XFF1A2232),
-
           prefixIcon: Icon(
             Icons.calendar_today_rounded,
             size: 16,
             color: AppColors.kGrey94Color,
           ),
+          prefixIconConstraints: const BoxConstraints(
+            minWidth: 36,
+            minHeight: 36,
+          ),
           suffixIcon: Icon(
             Icons.keyboard_arrow_down_rounded,
             color: AppColors.kGrey94Color,
             size: 18,
+          ),
+          suffixIconConstraints: const BoxConstraints(
+            minWidth: 28,
+            minHeight: 36
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
@@ -61,9 +70,7 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(
-              color: Color(0XFF232B3B),
-            ),
+            borderSide: BorderSide(color: Color(0XFF232B3B)),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
