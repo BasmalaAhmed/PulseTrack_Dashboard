@@ -12,25 +12,27 @@ class ProjectHealthHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Project Health',
-              style: AppStyles.bold14Style.copyWith(
-                color: Color(0XFFF8FAFC),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Project Health',
+                style: AppStyles.bold14Style.copyWith(
+                  color: const Color(0XFFF8FAFC),
+                ),
               ),
-            ),
-            SizedBox(height: 2),
-            Text(
-              'Active portfolio status split',
-              style: AppStyles.regular12Style.copyWith(
-                color: AppColors.kGrey94Color,
+              const SizedBox(height: 2),
+              Text(
+                'Active portfolio status split',
+                style: AppStyles.regular12Style.copyWith(
+                  color: AppColors.kGrey94Color,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-        Spacer(),
+        const SizedBox(width: 12,),
         FaIcon(
         FontAwesomeIcons.ellipsisVertical,
         color: AppColors.kGrey94Color,

@@ -11,46 +11,52 @@ class ProjectHealthSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0XFF161C26),
-        border: Border.all(color: Color(0XFF232B3B)),
+        color: const Color(0XFF161C26),
+        border: Border.all(color: const Color(0XFF232B3B)),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ProjectHealthHeader(),
-            SizedBox(height: 36),
-            ProjectHealthChart(),
-            SizedBox(height: 25),
-            PieChartIndicatorItem(
-              title: 'On Track',
-              dotColor: Color(0XFF10B981),
-              projectsNum: 9,
-              percent: 65,
+            const ProjectHealthHeader(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: ProjectHealthChart(),
             ),
-            SizedBox(height: 10),
-            PieChartIndicatorItem(
-              title: 'At Risk',
-              dotColor: Color(0XFFFBBF24),
-              projectsNum: 3,
-              percent: 22,
-            ),
-            SizedBox(height: 10),
-            PieChartIndicatorItem(
-              title: 'Delayed',
-              dotColor: Color(0XFFEF4444),
-              projectsNum: 2,
-              percent: 13,
-            ),
-            SizedBox(height: 12),
-            Divider(color: Color(0XFF232B3B)),
-            SizedBox(height: 22),
-            Text(
-              'View Portfolio Health Matrix >',
-              style: AppStyles.semibold12Style.copyWith(
-                color: Color(0XFFFBBF24),
-              ),
+            Column(
+              children: [
+                const PieChartIndicatorItem(
+                  title: 'On Track',
+                  dotColor: Color(0XFF10B981),
+                  projectsNum: 9,
+                  percent: 65,
+                ),
+                const SizedBox(height: 10),
+                const PieChartIndicatorItem(
+                  title: 'At Risk',
+                  dotColor: Color(0XFFFBBF24),
+                  projectsNum: 3,
+                  percent: 22,
+                ),
+                const SizedBox(height: 10),
+                const PieChartIndicatorItem(
+                  title: 'Delayed',
+                  dotColor: Color(0XFFEF4444),
+                  projectsNum: 2,
+                  percent: 13,
+                ),
+                const SizedBox(height: 12),
+                const Divider(color: Color(0XFF232B3B)),
+                const SizedBox(height: 22),
+                Text(
+                  'View Portfolio Health Matrix >',
+                  style: AppStyles.semibold12Style.copyWith(
+                    color: const Color(0XFFFBBF24),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
