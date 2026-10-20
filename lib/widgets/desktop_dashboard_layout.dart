@@ -10,32 +10,38 @@ class DesktopDashboardLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        Expanded(child: CustomDrawer()),
-        Expanded(
-          flex: 5,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                CustomHeader(),
-                Padding(
-                  padding: EdgeInsets.all(24),
-                  child: Column(
-                    children: [
-                      CardsList(),
-                      SizedBox(height: 24),
-                      WeeklyProductivityAndProjectHealthSection(),
-                      SizedBox(height: 24),
-                      PriorityTasksAndRecentActivitySection(),
-                    ],
-                  ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final drawerWidth = (constraints.maxWidth * 0.18).clamp(210.0, 280.0);
+
+        return Row(
+          children: [
+            SizedBox(width: drawerWidth, child: const CustomDrawer()),
+            Expanded(
+              flex: 5,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    CustomHeader(),
+                    Padding(
+                      padding: EdgeInsets.all(24),
+                      child: Column(
+                        children: [
+                          CardsList(),
+                          SizedBox(height: 24),
+                          WeeklyProductivityAndProjectHealthSection(),
+                          SizedBox(height: 24),
+                          PriorityTasksAndRecentActivitySection(),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 }

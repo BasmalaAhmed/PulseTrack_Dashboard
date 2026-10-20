@@ -9,43 +9,65 @@ class CustomDrawerHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      leading: SvgPicture.asset(AppImages.icon),
-      title: Row(
+    return SizedBox(
+      height: 56,
+      child: Row(
         children: [
-          Text(
-            'PulseTrack',
-            style: AppStyles.bold16Style.copyWith(
-              color: AppColors.kNeutralColor,
+          Flexible(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: SvgPicture.asset(AppImages.icon, width: 40, height: 40),
             ),
           ),
-          SizedBox(
-            width: 6,
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: Color(0XFFF59E0B).withValues(alpha: 0.15),
-              borderRadius: BorderRadius.circular(4),
-              border: Border.all(
-                color: Color(0XFFF59E0B).withValues(alpha: 0.3),
+          const SizedBox(width: 12),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'PulseTrack',
+                    maxLines: 1,
+                    softWrap: false,
+                    style: AppStyles.bold16Style.copyWith(
+                      color: AppColors.kNeutralColor,
+                    ),
+                  ),
+                  SizedBox(width: 6),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 6,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color(0XFFF59E0B).withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(
+                        color: Color(0XFFF59E0B).withValues(alpha: 0.3),
+                      ),
+                    ),
+                    child: Text(
+                      'PRO',
+                      style: AppStyles.semibold10Style.copyWith(
+                        color: Color(0XFFFBBF24),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-              child: Text(
-                'PRO',
-                style: AppStyles.semibold10Style.copyWith(
-                  color: Color(0XFFFBBF24),
+              Text(
+                'Enterprise Analytics',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: AppStyles.medium12Style.copyWith(
+                  color: AppColors.kGrey94Color,
                 ),
               ),
-            ),
+            ],
           ),
         ],
-      ),
-      subtitle: Text(
-        'Enterprise Analytics',
-        style: AppStyles.medium12Style.copyWith(color: AppColors.kGrey94Color),
       ),
     );
   }

@@ -13,28 +13,22 @@ class CustomDrawer extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0XFF131924),
       body: Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: const Color(0XFF232B3B))
+        decoration: const BoxDecoration(
+          border: Border(right: BorderSide(color: Color(0XFF232B3B))),
         ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
-          child: const Column(
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomDrawerHeader(),
               SizedBox(height: 14),
               CustomFoldTile(),
-              SizedBox(
-                height: 20,
-              ),
-              DrawerItemListView(),
-              Spacer(),
-              CustomQuota(), 
-              Divider(
-                color: Color(0XFF232B3B),
-                height: 24,
-              ),
-              UserInfo()
+              SizedBox(height: 20),
+              Expanded(child: DrawerItemListView()),
+              CustomQuota(),
+              Divider(color: Color(0XFF232B3B), height: 24),
+              UserInfo(),
             ],
           ),
         ),

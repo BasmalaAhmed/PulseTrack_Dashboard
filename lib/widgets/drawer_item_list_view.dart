@@ -3,15 +3,18 @@ import 'package:pulse_track_dashboard/models/drawer_item_model.dart';
 import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/widgets/custom_drawer_item.dart';
 
-class DrawerItemListView extends StatelessWidget {
+class DrawerItemListView extends StatefulWidget {
   const DrawerItemListView({super.key});
 
+  @override
+  State<DrawerItemListView> createState() => _DrawerItemListViewState();
+}
+
+class _DrawerItemListViewState extends State<DrawerItemListView> {
+  int selectedIndex = 0;
+
   final List<DrawerItemModel> items = const [
-    DrawerItemModel(
-      icon: AppImages.dashboard,
-      title: 'Dashboard',
-      isActive: true,
-    ),
+    DrawerItemModel(icon: AppImages.dashboard, title: 'Dashboard'),
     DrawerItemModel(icon: AppImages.projects, title: 'Projects'),
     DrawerItemModel(icon: AppImages.tasks, title: 'Tasks'),
     DrawerItemModel(icon: AppImages.analytics, title: 'Analytics'),
@@ -22,12 +25,20 @@ class DrawerItemListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      shrinkWrap: true,
+      padding: EdgeInsets.zero,
       itemCount: items.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 4),
-          child: CustomDrawerItem(drawerItemModel: items[index]),
+          child: CustomDrawerItem(
+            drawerItemModel: items[index],
+            isActive: selectedIndex == index,
+            onTap: () {
+              setState(() {
+                selectedIndex = index;
+              });
+            },
+          ),
         );
       },
     );

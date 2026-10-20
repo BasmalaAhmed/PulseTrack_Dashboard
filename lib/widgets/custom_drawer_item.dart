@@ -5,18 +5,21 @@ import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 
 class CustomDrawerItem extends StatelessWidget {
-  const CustomDrawerItem({super.key, required this.drawerItemModel});
+  const CustomDrawerItem({super.key, required this.drawerItemModel, required this.isActive, required this.onTap});
 
   final DrawerItemModel drawerItemModel;
+  final bool isActive;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onTap,
       contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-      tileColor: drawerItemModel.isActive
+      tileColor: isActive
           ? const Color(0XFFF59E0B).withValues(alpha: 0.15)
           : null,
-      shape: drawerItemModel.isActive
+      shape: isActive
           ? RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
               side: BorderSide(
@@ -27,7 +30,7 @@ class CustomDrawerItem extends StatelessWidget {
       leading: SvgPicture.asset(
         drawerItemModel.icon,
         colorFilter: ColorFilter.mode(
-          drawerItemModel.isActive
+          isActive
               ? const Color(0XFFFBBF24)
               : AppColors.kGrey94Color,
           BlendMode.srcIn,
@@ -37,12 +40,12 @@ class CustomDrawerItem extends StatelessWidget {
         drawerItemModel.title,
         style: AppStyles.regular14Style.copyWith(
           fontWeight: FontWeight.w600,
-          color: drawerItemModel.isActive
+          color: isActive
               ? const Color(0XFFFBBF24)
               : const Color(0XFFCBD5E1),
         ),
       ),
-      trailing: drawerItemModel.isActive
+      trailing: isActive
           ? Container(
               height: 6,
               width: 6,
