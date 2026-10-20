@@ -11,6 +11,10 @@ class PulseTrackApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: (context, child) {
+    // debugPrint('screen width = ${MediaQuery.sizeOf(context).width.round()}');
+    return child!;
+  },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0XFF0B0F17),

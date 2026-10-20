@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pulse_track_dashboard/models/card_model.dart';
 import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
-import 'package:pulse_track_dashboard/widgets/custom_card.dart';
+import 'package:pulse_track_dashboard/widgets/custom_sliver_grid.dart';
 import 'package:pulse_track_dashboard/widgets/loading_bar.dart';
 
 class CardsList extends StatelessWidget {
@@ -155,26 +155,10 @@ class CardsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final columns = constraints.maxWidth >= 900
-            ? 4
-            : constraints.maxWidth >= 600
-            ? 2
-            : 1;
-        const gap = 20.0;
-        final itemWidth =
-            (constraints.maxWidth - gap * (columns - 1)) / columns;
-        return Wrap(
-          spacing: gap,
-          runSpacing: gap,
-          children: [
-            for (final item in items)
-              SizedBox(
-                width: itemWidth,
-                height: 160,
-                child: CustomCard(cardModel: item),
-              ),
-          ],
-        );
+        if (constraints.maxWidth <= 872) {
+          return CustomSliverGrid(items: items, crossAxisCount: 2);
+        }
+        return CustomSliverGrid(items: items, crossAxisCount: 4);
       },
     );
   }

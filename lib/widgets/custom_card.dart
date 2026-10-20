@@ -27,16 +27,18 @@ class CustomCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text(
-                    cardModel.title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppStyles.semibold12Style.copyWith(
-                      color: AppColors.kGrey94Color,
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      cardModel.title,
+                      style: AppStyles.semibold12Style.copyWith(
+                        color: AppColors.kGrey94Color,
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 CustomIconContainer(
                   icon: cardModel.icon,
                   color: cardModel.color,
@@ -48,20 +50,21 @@ class CustomCard extends StatelessWidget {
             const SizedBox(height: 16),
             Row(
               children: [
-                Flexible(
-                  child: Text(
-                    cardModel.number,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppStyles.bold24Style.copyWith(
-                      color: Color(0XFFF8FAFC),
-                      letterSpacing: -0.6,
+                Expanded(
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      cardModel.number,
+                      style: AppStyles.bold24Style.copyWith(
+                        color: Color(0XFFF8FAFC),
+                        letterSpacing: -0.6,
+                      ),
                     ),
                   ),
                 ),
                 if (cardModel.chart) ...[
-                  const Spacer(),
-                  SizedBox(
+                  const SizedBox(
                     width: 80,
                     height: 28,
                     child: TeamProductivityChart(),
