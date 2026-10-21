@@ -7,14 +7,28 @@ class WeeklyProductivityAndProjectHealthSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: Row(
-                      children: [
-                        Expanded(flex: 2,child: WeeklyProductivitySection()),
-                        SizedBox(width: 24,),
-                        Expanded(child: ProjectHealthSection()),
-                      ],
-                    ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isWide = constraints.maxWidth >= 800;
+        if (isWide) {
+          return IntrinsicHeight(
+            child: Row(
+                            children: [
+                              Expanded(flex: 2,child: WeeklyProductivitySection()),
+                              SizedBox(width: 24,),
+                              Expanded(child: ProjectHealthSection()),
+                            ],
+                          ),
+          );
+        }
+        return Column(
+          children: [
+            WeeklyProductivitySection(),
+            SizedBox(height: 24,),
+            ProjectHealthSection(),
+          ],
+        );
+      }
     );
   }
 }
