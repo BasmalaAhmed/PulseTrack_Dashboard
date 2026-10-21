@@ -13,22 +13,22 @@ class WeeklyProductivityAndProjectHealthSection extends StatelessWidget {
         if (isWide) {
           return IntrinsicHeight(
             child: Row(
-                            children: [
-                              Expanded(flex: 2,child: WeeklyProductivitySection()),
-                              SizedBox(width: 24,),
-                              Expanded(child: ProjectHealthSection()),
-                            ],
-                          ),
+              children: [
+                Expanded(flex: 2, child: WeeklyProductivitySection()),
+                SizedBox(width: 24),
+                Expanded(child: ProjectHealthSection()),
+              ],
+            ),
           );
         }
         return Column(
           children: [
             WeeklyProductivitySection(),
-            SizedBox(height: 24,),
-            ProjectHealthSection(),
+            SizedBox(height: 24),
+            ProjectHealthSection(horizontal: true,),
           ],
         );
-      }
+      },
     );
   }
 }

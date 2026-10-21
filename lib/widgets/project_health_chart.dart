@@ -14,33 +14,31 @@ class _ProjectHealthChartState extends State<ProjectHealthChart> {
   int activeIndex = -1;
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: 190, maxWidth: 190),
-      child: AspectRatio(
-        aspectRatio: 1,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            PieChart(getChartData()),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  '14',
-                  style: AppStyles.bold24Style.copyWith(color: Color(0XFFF8FAFC)),
+    return SizedBox(
+      width: 190,
+      height: 190,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          PieChart(getChartData()),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                '14',
+                style: AppStyles.bold24Style.copyWith(color: Color(0XFFF8FAFC)),
+              ),
+              Text(
+                'INITIATIVES',
+                style: AppStyles.semibold10Style.copyWith(
+                  color: AppColors.kGrey94Color,
+                  fontFamily: 'JetBrains_Mono',
+                  letterSpacing: 0.5,
                 ),
-                Text(
-                  'INITIATIVES',
-                  style: AppStyles.semibold10Style.copyWith(
-                    color: AppColors.kGrey94Color,
-                    fontFamily: 'JetBrains_Mono',
-                    letterSpacing: 0.5,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -53,10 +51,10 @@ class _ProjectHealthChartState extends State<ProjectHealthChart> {
       borderData: FlBorderData(show: false),
       pieTouchData: PieTouchData(
         enabled: true,
-        touchCallback: (p0, pietouchResponse) {
-          activeIndex =
-              pietouchResponse?.touchedSection?.touchedSectionIndex ?? -1;
-          setState(() {});
+        touchCallback: (event, response) {
+          setState(() {
+            activeIndex = response?.touchedSection?.touchedSectionIndex ?? -1;
+          });
         },
       ),
       sections: [
