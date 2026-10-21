@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/utils/app_colors.dart';
-import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
-import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
+import 'package:pulse_track_dashboard/widgets/user_avatar.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({super.key});
@@ -11,23 +10,7 @@ class UserInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
-      leading: Stack(
-        children: [
-          ClipOval(
-            child: Container(
-              decoration: const ShapeDecoration(
-                shape: OvalBorder(side: BorderSide(color: Color(0XFF2A3448))),
-              ),
-              child: Image.asset(AppImages.admin, width: 36, height: 36),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: CustomDot(height: 12, width: 12, color: Color(0XFF10B981), isBorder: true,)
-          ),
-        ],
-      ),
+      leading: const UserAvatar(),
       title: Text(
         'Alex Chen',
         style: AppStyles.semibold12Style.copyWith(
@@ -42,3 +25,5 @@ class UserInfo extends StatelessWidget {
     );
   }
 }
+
+

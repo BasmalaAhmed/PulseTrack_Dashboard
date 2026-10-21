@@ -1,8 +1,9 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/view/dashboard_view.dart';
 
 void main() {
-  runApp(const PulseTrackApp());
+  runApp(DevicePreview(enabled: true, builder: (context) => const PulseTrackApp()));
 }
 
 class PulseTrackApp extends StatelessWidget {
@@ -11,14 +12,14 @@ class PulseTrackApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
       builder: (context, child) {
-    // debugPrint('screen width = ${MediaQuery.sizeOf(context).width.round()}');
-    return child!;
-  },
+        debugPrint('screen width = ${MediaQuery.sizeOf(context).width.round()}');
+        return child!;
+      },
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Color(0XFF0B0F17),
-      ),
+      theme: ThemeData(scaffoldBackgroundColor: Color(0XFF0B0F17)),
       home: DashboardView(),
     );
   }
