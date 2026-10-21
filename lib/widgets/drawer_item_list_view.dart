@@ -1,44 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/models/drawer_item_model.dart';
-import 'package:pulse_track_dashboard/utils/app_images.dart';
+import 'package:pulse_track_dashboard/models/drawer_items.dart';
 import 'package:pulse_track_dashboard/widgets/custom_drawer_item.dart';
 
-class DrawerItemListView extends StatefulWidget {
+class DrawerItemListView extends StatelessWidget {
   const DrawerItemListView({super.key});
 
   @override
-  State<DrawerItemListView> createState() => _DrawerItemListViewState();
-}
-
-class _DrawerItemListViewState extends State<DrawerItemListView> {
-  int selectedIndex = 0;
-
-  final List<DrawerItemModel> items = const [
-    DrawerItemModel(icon: AppImages.dashboard, title: 'Dashboard'),
-    DrawerItemModel(icon: AppImages.projects, title: 'Projects'),
-    DrawerItemModel(icon: AppImages.tasks, title: 'Tasks'),
-    DrawerItemModel(icon: AppImages.analytics, title: 'Analytics'),
-    DrawerItemModel(icon: AppImages.activity, title: 'Activity'),
-    DrawerItemModel(icon: AppImages.settings, title: 'Settings'),
-  ];
-
-  @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.zero,
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 4),
-          child: CustomDrawerItem(
-            drawerItemModel: items[index],
-            isActive: selectedIndex == index,
-            onTap: () {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-          ),
+    return ValueListenableBuilder<int>(
+      valueListenable: selectedDrawerIndex,
+      builder: (context, selected, _) {
+        return ListView.builder(
+          padding: EdgeInsets.zero,
+          itemCount: drawerItems.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: CustomDrawerItem(
+                drawerItemModel: drawerItems[index],
+                isActive: selected == index,
+                onTap: () => selectedDrawerIndex.value = index,
+              ),
+            );
+          },
         );
       },
     );
