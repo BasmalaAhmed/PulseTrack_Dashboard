@@ -3,9 +3,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
+import 'package:pulse_track_dashboard/widgets/pro_badge.dart';
 
 class CustomDrawerHeader extends StatelessWidget {
-  const CustomDrawerHeader({super.key});
+  const CustomDrawerHeader({super.key, required this.widget});
+  final Widget widget;
 
   @override
   Widget build(BuildContext context) {
@@ -36,35 +38,10 @@ class CustomDrawerHeader extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 6),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 6,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: const Color(0XFFF59E0B).withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(4),
-                      border: Border.all(
-                        color: Color(0XFFF59E0B).withValues(alpha: 0.3),
-                      ),
-                    ),
-                    child: Text(
-                      'PRO',
-                      style: AppStyles.semibold10Style.copyWith(
-                        color: Color(0XFFFBBF24),
-                      ),
-                    ),
-                  ),
+                  ProBadge(),
                 ],
               ),
-              Text(
-                'Enterprise Analytics',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: AppStyles.medium12Style.copyWith(
-                  color: AppColors.kGrey94Color,
-                ),
-              ),
+              widget
             ],
           ),
         ],
@@ -72,3 +49,4 @@ class CustomDrawerHeader extends StatelessWidget {
     );
   }
 }
+

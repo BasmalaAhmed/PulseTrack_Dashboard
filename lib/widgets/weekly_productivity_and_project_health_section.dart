@@ -25,7 +25,7 @@ class WeeklyProductivityAndProjectHealthSection extends StatelessWidget {
           children: [
             WeeklyProductivitySection(),
             SizedBox(height: 24),
-            ProjectHealthSection(horizontal: true,),
+            ProjectHealthSection(horizontal: constraints.maxWidth >= 560,),
           ],
         );
       },

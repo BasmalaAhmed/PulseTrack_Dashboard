@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
+import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
 class CustomFoldTile extends StatelessWidget {
   const CustomFoldTile({super.key});
@@ -15,14 +16,7 @@ class CustomFoldTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         side: const BorderSide(color: Color(0XFF232B3B)),
       ),
-      leading: Container(
-        height: 8,
-        width: 8,
-        decoration: const ShapeDecoration(
-          shape: OvalBorder(),
-          color: Color(0XFFF59E0B),
-        ),
-      ),
+      leading: CustomDot(height: 8, width: 8),
       title: Text(
         'Acme Engineering',
         style: AppStyles.medium12Style.copyWith(

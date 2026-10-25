@@ -76,7 +76,7 @@ class CustomHeader extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 CustomButton(
-                  title: 'Task',
+                  title: 'New Task',
                   buttonColor: Color(0XFF1E2638),
                   style: AppStyles.semibold12Style.copyWith(
                     color: Color(0XFFF1F5F9),

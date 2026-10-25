@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
+import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_drawer_header.dart';
 import 'package:pulse_track_dashboard/widgets/custom_fold_tile.dart';
 import 'package:pulse_track_dashboard/widgets/custom_quota.dart';
@@ -16,12 +18,21 @@ class CustomDrawer extends StatelessWidget {
         decoration: const BoxDecoration(
           border: Border(right: BorderSide(color: Color(0XFF232B3B))),
         ),
-        child: const Padding(
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomDrawerHeader(),
+              CustomDrawerHeader(
+                widget: Text(
+                  'Enterprise Analytics',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppStyles.medium12Style.copyWith(
+                    color: AppColors.kGrey94Color,
+                  ),
+                ),
+              ),
               SizedBox(height: 14),
               CustomFoldTile(),
               SizedBox(height: 20),
