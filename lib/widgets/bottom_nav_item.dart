@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pulse_track_dashboard/models/drawer_item_model.dart';
 import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
+import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
 class BottomNavItem extends StatelessWidget {
   const BottomNavItem({
@@ -42,7 +43,17 @@ class BottomNavItem extends StatelessWidget {
                   height: 20,
                   colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
                 ),
-                if (model.badgeCount != null)
+                if (isActive)
+                  Positioned(
+                    top: -2,
+                    right: -12,
+                    child: CustomDot(
+                      height: 6,
+                      width: 6,
+                      color: Color(0XFFFBBF24),
+                    ),
+                  )
+                else if (model.badgeCount != null)
                   Positioned(
                     top: -6,
                     right: -12,

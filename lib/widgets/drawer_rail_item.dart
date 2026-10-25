@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pulse_track_dashboard/models/drawer_item_model.dart';
 import 'package:pulse_track_dashboard/utils/app_colors.dart';
+import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
 class DrawerRailItem extends StatelessWidget {
@@ -45,16 +46,36 @@ class DrawerRailItem extends StatelessWidget {
                     BlendMode.srcIn,
                   ),
                 ),
-                if (isActive || drawerItemModel.hasBadge)
+                if (isActive)
                   Positioned(
                     top: 8,
                     right: 8,
                     child: CustomDot(
                       height: 6,
                       width: 6,
-                      color: isActive
-                          ? Color(0XFFFBBF24)
-                          : Color(0XFFF59E0B).withValues(alpha: 0.4),
+                      color: Color(0XFFFBBF24),
+                    ),
+                  )
+                else if (drawerItemModel.badgeCount != null)
+                  Positioned(
+                    top: 6,
+                    right: 6,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 2,
+                        vertical: 1,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Color(0XFFF59E0B),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Text(
+                        '${drawerItemModel.badgeCount}',
+                        style: AppStyles.semibold10Style.copyWith(
+                          color: const Color(0XFF020617),
+                          fontSize: 9,
+                        ),
+                      ),
                     ),
                   ),
               ],
