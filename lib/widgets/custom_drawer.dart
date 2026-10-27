@@ -18,29 +18,35 @@ class CustomDrawer extends StatelessWidget {
         decoration: const BoxDecoration(
           border: Border(right: BorderSide(color: Color(0XFF232B3B))),
         ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomDrawerHeader(
-                widget: Text(
-                  'Enterprise Analytics',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppStyles.medium12Style.copyWith(
-                    color: AppColors.kGrey94Color,
+        child: SafeArea(
+          right: false,
+          left: false,
+          bottom: false,
+          minimum: const EdgeInsets.only(top: 16),
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomDrawerHeader(
+                  widget: Text(
+                    'Enterprise Analytics',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppStyles.medium12Style.copyWith(
+                      color: AppColors.kGrey94Color,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(height: 14),
-              CustomFoldTile(),
-              SizedBox(height: 20),
-              Expanded(child: DrawerItemListView()),
-              CustomQuota(),
-              Divider(color: Color(0XFF232B3B), height: 24),
-              UserInfo(),
-            ],
+                SizedBox(height: 14),
+                CustomFoldTile(),
+                SizedBox(height: 20),
+                Expanded(child: DrawerItemListView()),
+                CustomQuota(),
+                Divider(color: Color(0XFF232B3B), height: 24),
+                UserInfo(),
+              ],
+            ),
           ),
         ),
       ),

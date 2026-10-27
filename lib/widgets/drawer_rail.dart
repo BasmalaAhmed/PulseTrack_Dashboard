@@ -10,62 +10,66 @@ class DrawerRail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final left = MediaQuery.viewPaddingOf(context).left;
     return Container(
-      width: 72,
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      width: 72 + left,
       decoration: const BoxDecoration(
         color: Color(0XFF131924),
         border: Border(right: BorderSide(color: Color(0XFF232B3B))),
       ),
-      child: Column(
-        children: [
-          SvgPicture.asset(AppImages.icon, width: 40, height: 40),
-          const SizedBox(height: 16),
-          Tooltip(
-            message: 'Acme Engineering',
-            child: Container(
-              width: 36,
-              height: 36,
-              decoration: BoxDecoration(
-                color: Color(0XFF1A2232),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: const Color(0XFF232B3B)),
-              ),
-              child: Center(
-                child: Container(
-                  width: 8,
-                  height: 8,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0XFFF59E0B),
+      child: SafeArea(
+        right: false,
+        minimum: const EdgeInsets.symmetric(vertical: 16),
+        child: Column(
+          children: [
+            SvgPicture.asset(AppImages.icon, width: 40, height: 40),
+            const SizedBox(height: 16),
+            Tooltip(
+              message: 'Acme Engineering',
+              child: Container(
+                width: 36,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: Color(0XFF1A2232),
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: const Color(0XFF232B3B)),
+                ),
+                child: Center(
+                  child: Container(
+                    width: 8,
+                    height: 8,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0XFFF59E0B),
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          const SizedBox(height: 20),
-          Expanded(
-            child: ValueListenableBuilder<int>(
-              valueListenable: selectedDrawerIndex,
-              builder: (context, selected, _) {
-                return ListView.separated(
-                  padding: EdgeInsets.zero,
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(height: 8),
-                  itemCount: drawerItems.length,
-                  itemBuilder: (context, index) => Center(
-                    child: DrawerRailItem(
-                      drawerItemModel: drawerItems[index],
-                      isActive: selected == index,
-                      onTap: () => selectedDrawerIndex.value = index,
+            const SizedBox(height: 20),
+            Expanded(
+              child: ValueListenableBuilder<int>(
+                valueListenable: selectedDrawerIndex,
+                builder: (context, selected, _) {
+                  return ListView.separated(
+                    padding: EdgeInsets.zero,
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(height: 8),
+                    itemCount: drawerItems.length,
+                    itemBuilder: (context, index) => Center(
+                      child: DrawerRailItem(
+                        drawerItemModel: drawerItems[index],
+                        isActive: selected == index,
+                        onTap: () => selectedDrawerIndex.value = index,
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-          const UserAvatar(),
-        ],
+            const UserAvatar(),
+          ],
+        ),
       ),
     );
   }

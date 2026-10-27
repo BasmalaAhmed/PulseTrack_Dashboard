@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/widgets/custom_drawer.dart';
 import 'package:pulse_track_dashboard/widgets/dashboard_content.dart';
+import 'package:pulse_track_dashboard/widgets/desktop_header.dart';
 
 class DesktopDashboardLayout extends StatelessWidget {
   const DesktopDashboardLayout({super.key});
@@ -16,7 +17,9 @@ class DesktopDashboardLayout extends StatelessWidget {
             SizedBox(width: drawerWidth, child: const CustomDrawer()),
             Expanded(
               flex: 5,
-              child: DashboardContent()
+              child: SingleChildScrollView(
+                child: Column(children: [DesktopHeader(), DashboardContent()]),
+              ),
             ),
           ],
         );

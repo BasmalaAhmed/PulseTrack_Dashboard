@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/widgets/dashboard_content.dart';
 import 'package:pulse_track_dashboard/widgets/drawer_rail.dart';
+import 'package:pulse_track_dashboard/widgets/tablet_header.dart';
 
 class TabletDashboardLayout extends StatelessWidget {
   const TabletDashboardLayout({super.key});
@@ -10,7 +11,12 @@ class TabletDashboardLayout extends StatelessWidget {
     return Row(
       children: [
         DrawerRail(),
-        Expanded(flex: 5, child: DashboardContent()),
+        Expanded(
+          flex: 5,
+          child: SingleChildScrollView(
+            child: Column(children: [TabletHeader(), DashboardContent()]),
+          ),
+        ),
       ],
     );
   }
