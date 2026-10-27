@@ -15,77 +15,85 @@ class CardsList extends StatelessWidget {
       title: 'ACTIVE PROJECTS',
       icon: FontAwesomeIcons.folder,
       number: '14',
-      widget: Row(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Color(0XFF10B981).withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(30),
-              border: Border.all(
-                color: Color(0XFF10B981).withValues(alpha: 0.2),
+      widget: SizedBox(
+        width: double.infinity,
+        child: Wrap(
+          spacing: 12,
+          runSpacing: 6,
+          alignment: WrapAlignment.spaceBetween,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0XFF10B981).withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(
+                  color: Color(0XFF10B981).withValues(alpha: 0.2),
+                ),
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.arrow_upward_rounded,
-                    color: Color(0XFF34D399),
-                    size: 12,
-                  ),
-                  SizedBox(width: 4),
-                  Text(
-                    '+2 this mo',
-                    style: AppStyles.semibold11Style.copyWith(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.arrow_upward_rounded,
                       color: Color(0XFF34D399),
+                      size: 12,
                     ),
-                  ),
-                ],
+                    SizedBox(width: 4),
+                    Text(
+                      '+2 this mo',
+                      style: AppStyles.semibold11Style.copyWith(
+                        color: Color(0XFF34D399),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          const SizedBox(width: 12),
-          Flexible(
-            child: Text(
-              '4 near deadlines',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: AppStyles.regular11Style,
-            ),
-          ),
-        ],
+            const SizedBox(width: 12),
+            Text('4 near deadlines', style: AppStyles.regular11Style),
+          ],
+        ),
       ),
     ),
     CardModel(
       title: 'PENDING TASKS',
       icon: FontAwesomeIcons.clipboard,
       number: '38',
-      widget: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  '12 completed today',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppStyles.regular11Style,
+      widget: SizedBox(
+        width: double.infinity,
+        child: Wrap(
+          spacing: 12,
+          runSpacing: 6,
+          alignment: WrapAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      '12 completed today',
+                      style: AppStyles.regular11Style,
+                    ),
+                  ),
                 ),
-              ),
-              Text(
-                '78%',
-                style: AppStyles.semibold11Style.copyWith(
-                  fontFamily: 'JetBrains_Mono',
-                  color: Color(0XFFE2E8F0),
+                const SizedBox(width: 8),
+                Text(
+                  '78%',
+                  style: AppStyles.semibold11Style.copyWith(
+                    fontFamily: 'JetBrains_Mono',
+                    color: Color(0XFFE2E8F0),
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 6),
-          LoadingBar(loaded: 190, remaining: 55),
-        ],
+              ],
+            ),
+            const SizedBox(height: 6),
+            LoadingBar(loaded: 190, remaining: 55),
+          ],
+        ),
       ),
     ),
     CardModel(
@@ -96,57 +104,57 @@ class CardsList extends StatelessWidget {
       color: Color(0XFFF59E0B).withValues(alpha: 0.1),
       borderColor: Color(0XFFF59E0B).withValues(alpha: 0.2),
       iconColor: Color(0XFFFBBF24),
-      widget: Row(
-        children: [
-          SvgPicture.asset(AppImages.check),
-          SizedBox(width: 4),
-          Flexible(
-            child: Text(
+      widget: FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SvgPicture.asset(AppImages.check),
+            SizedBox(width: 4),
+            Text(
               '+4.8% vs last cycle',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
               style: AppStyles.semibold11Style.copyWith(
                 color: Color(0XFF34D399),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
     CardModel(
       title: 'AVG CYCLE TIME',
       icon: FontAwesomeIcons.stopwatch,
       number: '3.2',
-      widget: Row(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Color(0XFF10B981).withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(30),
-              border: Border.all(
-                color: Color(0XFF10B981).withValues(alpha: 0.2),
+      widget: SizedBox(
+        width: double.infinity,
+        child: Wrap(
+          spacing: 12,
+          runSpacing: 6,
+          alignment: WrapAlignment.spaceBetween,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0XFF10B981).withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(
+                  color: Color(0XFF10B981).withValues(alpha: 0.2),
+                ),
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-              child: Text(
-                '-0.6 days',
-                style: AppStyles.semibold11Style.copyWith(
-                  color: Color(0XFF34D399),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                child: Text(
+                  '-0.6 days',
+                  style: AppStyles.semibold11Style.copyWith(
+                    color: Color(0XFF34D399),
+                  ),
                 ),
               ),
             ),
-          ),
-          const SizedBox(width: 12),
-          Flexible(
-            child: Text(
-              'velocity acceleration',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: AppStyles.regular11Style,
-            ),
-          ),
-        ],
+            const SizedBox(width: 12),
+            Text('velocity acceleration', style: AppStyles.regular11Style),
+          ],
+        ),
       ),
     ),
   ];
