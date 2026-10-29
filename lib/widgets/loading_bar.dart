@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
 
 class LoadingBar extends StatelessWidget {
   const LoadingBar({super.key, this.loaded, this.remaining});
@@ -15,7 +16,7 @@ class LoadingBar extends StatelessWidget {
                     width: loaded ?? 150,
                     height: 6,
                     decoration: BoxDecoration(
-                      color: const Color(0XFFF59E0B),
+                      color: AppColors.kAccentColor,
                       borderRadius: BorderRadius.circular(9),
                     ),
                   ),
@@ -26,7 +27,7 @@ class LoadingBar extends StatelessWidget {
                     width: remaining ?? 34,
                     height: 6,
                     decoration: BoxDecoration(
-                      color: const Color(0XFF1F2937),
+                      color: AppColors.kBorderColor,
                       borderRadius: BorderRadius.circular(9),
                     ),
                   ),

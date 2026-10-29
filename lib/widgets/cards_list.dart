@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pulse_track_dashboard/models/card_model.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_sliver_grid.dart';
@@ -24,10 +25,10 @@ class CardsList extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color(0XFF10B981).withValues(alpha: 0.1),
+                color: AppColors.kGreenColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
-                  color: Color(0XFF10B981).withValues(alpha: 0.2),
+                  color: AppColors.kGreenColor.withValues(alpha: 0.2),
                 ),
               ),
               child: Padding(
@@ -37,14 +38,14 @@ class CardsList extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.arrow_upward_rounded,
-                      color: Color(0XFF34D399),
+                      color: AppColors.kGreenLightColor,
                       size: 12,
                     ),
                     SizedBox(width: 4),
                     Text(
                       '+2 this mo',
                       style: AppStyles.semibold11Style.copyWith(
-                        color: Color(0XFF34D399),
+                        color: AppColors.kGreenLightColor,
                       ),
                     ),
                   ],
@@ -85,7 +86,7 @@ class CardsList extends StatelessWidget {
                   '78%',
                   style: AppStyles.semibold11Style.copyWith(
                     fontFamily: 'JetBrains_Mono',
-                    color: Color(0XFFE2E8F0),
+                    color: AppColors.kTextSoftColor,
                   ),
                 ),
               ],
@@ -101,9 +102,9 @@ class CardsList extends StatelessWidget {
       icon: FontAwesomeIcons.arrowTrendUp,
       number: '94.2%',
       chart: true,
-      color: Color(0XFFF59E0B).withValues(alpha: 0.1),
-      borderColor: Color(0XFFF59E0B).withValues(alpha: 0.2),
-      iconColor: Color(0XFFFBBF24),
+      color: AppColors.kAccentColor.withValues(alpha: 0.1),
+      borderColor: AppColors.kAccentColor.withValues(alpha: 0.2),
+      iconColor: AppColors.kAccentLightColor,
       widget: FittedBox(
         fit: BoxFit.scaleDown,
         alignment: Alignment.centerLeft,
@@ -115,7 +116,7 @@ class CardsList extends StatelessWidget {
             Text(
               '+4.8% vs last cycle',
               style: AppStyles.semibold11Style.copyWith(
-                color: Color(0XFF34D399),
+                color: AppColors.kGreenLightColor,
               ),
             ),
           ],
@@ -135,10 +136,10 @@ class CardsList extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color(0XFF10B981).withValues(alpha: 0.1),
+                color: AppColors.kGreenColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
-                  color: Color(0XFF10B981).withValues(alpha: 0.2),
+                  color: AppColors.kGreenColor.withValues(alpha: 0.2),
                 ),
               ),
               child: Padding(
@@ -146,7 +147,7 @@ class CardsList extends StatelessWidget {
                 child: Text(
                   '-0.6 days',
                   style: AppStyles.semibold11Style.copyWith(
-                    color: Color(0XFF34D399),
+                    color: AppColors.kGreenLightColor,
                   ),
                 ),
               ),

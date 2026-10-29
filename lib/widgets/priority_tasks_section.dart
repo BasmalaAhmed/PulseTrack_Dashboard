@@ -12,8 +12,8 @@ class PriorityTasksSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0XFF161C26),
-        border: Border.all(color: Color(0XFF232B3B)),
+        color: AppColors.kCardColor,
+        border: Border.all(color: AppColors.kBorderColor),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -29,7 +29,7 @@ class PriorityTasksSection extends StatelessWidget {
                       Text(
                         'Priority Tasks & Milestones',
                         style: AppStyles.bold14Style.copyWith(
-                          color: Color(0XFFF8FAFC),
+                          color: AppColors.kNeutralColor,
                         ),
                       ),
                       SizedBox(height: 2),
@@ -45,13 +45,13 @@ class PriorityTasksSection extends StatelessWidget {
                 Text(
                   'View All (38)',
                   style: AppStyles.semibold12Style.copyWith(
-                    color: Color(0XFFFBBF24),
+                    color: AppColors.kAccentLightColor,
                   ),
                 ),
               ],
             ),
           ),
-          Divider(color: Color(0XFF232B3B), height: 0),
+          Divider(color: AppColors.kBorderColor, height: 0),
           if (fillHeight)
             Expanded(
               child: Align(alignment: Alignment.topCenter, child: PriorityTasksList()),
@@ -60,7 +60,7 @@ class PriorityTasksSection extends StatelessWidget {
             PriorityTasksList(),
           Container(
             decoration: BoxDecoration(
-              color: Color(0XFF131924),
+              color: AppColors.kSurfaceColor,
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
             ),
             child: Padding(

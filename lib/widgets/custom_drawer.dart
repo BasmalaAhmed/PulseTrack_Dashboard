@@ -13,10 +13,10 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF131924),
+      backgroundColor: AppColors.kSurfaceColor,
       body: Container(
         decoration: const BoxDecoration(
-          border: Border(right: BorderSide(color: Color(0XFF232B3B))),
+          border: Border(right: BorderSide(color: AppColors.kBorderColor)),
         ),
         child: SafeArea(
           right: false,
@@ -43,7 +43,7 @@ class CustomDrawer extends StatelessWidget {
                 SizedBox(height: 20),
                 Expanded(child: DrawerItemListView()),
                 CustomQuota(),
-                Divider(color: Color(0XFF232B3B), height: 24),
+                Divider(color: AppColors.kBorderColor, height: 24),
                 UserInfo(),
               ],
             ),

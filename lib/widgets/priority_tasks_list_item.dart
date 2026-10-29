@@ -23,7 +23,7 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: Color(0XFF232B3B))),
+        border: Border(bottom: BorderSide(color: AppColors.kBorderColor)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -39,8 +39,8 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4),
               ),
-              side: BorderSide(color: Color(0XFF374151)),
-              activeColor: Color(0XFFF59E0B),
+              side: BorderSide(color: AppColors.kGrey33Color),
+              activeColor: AppColors.kAccentColor,
             ),
             SizedBox(width: 12),
             Expanded(
@@ -52,7 +52,7 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                     style: AppStyles.semibold12Style.copyWith(
                       color: isChecked
                           ? AppColors.kGrey64Color
-                          : Color(0XFFE2E8F0),
+                          : AppColors.kTextSoftColor,
                       decoration: isChecked ? TextDecoration.lineThrough : null,
                       decorationColor: AppColors.kGrey64Color,
                     ),
@@ -65,9 +65,9 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            color: Color(0XFF1E2638),
+                            color: AppColors.kHighlightSurfaceColor,
                             borderRadius: BorderRadius.circular(4),
-                            border: Border.all(color: Color(0XFF283347)),
+                            border: Border.all(color: AppColors.kBorderLightColor),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
@@ -79,7 +79,7 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                               style: AppStyles.medium11Style.copyWith(
                                 color: isChecked
                                     ? AppColors.kGrey94Color
-                                    : Color(0XFFCBD5E1),
+                                    : AppColors.kIconLightColor,
                               ),
                             ),
                           ),
@@ -88,7 +88,7 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                         isChecked
                             ? FaIcon(
                                 FontAwesomeIcons.check,
-                                color: Color(0XFF34D399),
+                                color: AppColors.kGreenLightColor,
                                 size: 12,
                               )
                             : FaIcon(
@@ -103,7 +103,7 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                               : widget.priorityTasksListItemModel.date,
                           style: AppStyles.regular11Style.copyWith(
                             color: isChecked
-                                ? Color(0XFF34D399)
+                                ? AppColors.kGreenLightColor
                                 : AppColors.kGrey94Color,
                           ),
                         ),
@@ -115,13 +115,13 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
             ),
             CustomPriority(
               color: isChecked
-                  ? Color(0XFF10B981)
+                  ? AppColors.kGreenColor
                   : widget.priorityTasksListItemModel.color,
               priority: isChecked
                   ? 'Done'
                   : widget.priorityTasksListItemModel.priority,
               titleColor: isChecked
-                  ? Color(0XFF34D399)
+                  ? AppColors.kGreenLightColor
                   : widget.priorityTasksListItemModel.titleColor,
             ),
           ],

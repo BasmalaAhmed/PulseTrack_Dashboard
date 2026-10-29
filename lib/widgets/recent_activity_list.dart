@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/widgets/recent_activity_item.dart';
 
@@ -28,11 +29,11 @@ class RecentActivityList extends StatelessWidget {
             details:
                 'All 18 blocker criteria met for early enterprise customer cohort release.',
             msg: 'API v2 Gateway Beta',
-            msgColor: Color(0XFF34D399),
+            msgColor: AppColors.kGreenLightColor,
             time: '45m ago',
             icon: AppImages.milestone,
-            iconColor: Color(0XFF10B981).withValues(alpha: 0.15),
-            iconBorder: Color(0XFF10B981).withValues(alpha: 0.3),
+            iconColor: AppColors.kGreenColor.withValues(alpha: 0.15),
+            iconBorder: AppColors.kGreenColor.withValues(alpha: 0.3),
           ),
           SizedBox(height: 18),
           RecentActivityItem(
@@ -40,7 +41,7 @@ class RecentActivityList extends StatelessWidget {
             operation: 'approved specs for ',
             details: 'Handoff bundle ready for frontend implementation sprint.',
             msg: 'Analytics Dashboard Refres',
-            msgColor: Color(0XFFE2E8F0),
+            msgColor: AppColors.kTextSoftColor,
             time: '2h ago',
             icon: AppImages.approve,
           ),

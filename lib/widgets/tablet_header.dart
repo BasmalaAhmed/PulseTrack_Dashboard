@@ -14,8 +14,8 @@ class TabletHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0XFF131924),
-        border: Border(bottom: BorderSide(color: Color(0XFF232B3B))),
+        color: AppColors.kSurfaceColor,
+        border: Border(bottom: BorderSide(color: AppColors.kBorderColor)),
       ),
       child: SafeArea(
         left: false,
@@ -77,25 +77,25 @@ class TabletHeader extends StatelessWidget {
                   SizedBox(
                     height: 20,
                     width: 5,
-                    child: VerticalDivider(color: Color(0XFF232B3B)),
+                    child: VerticalDivider(color: AppColors.kBorderColor),
                   ),
                   const SizedBox(width: 10),
                   CustomButton(
                     title: 'New Task',
-                    buttonColor: Color(0XFF1E2638),
+                    buttonColor: AppColors.kHighlightSurfaceColor,
                     style: AppStyles.semibold12Style.copyWith(
-                      color: Color(0XFFF1F5F9),
+                      color: AppColors.kNeutralColor,
                     ),
-                    iconColor: Color(0XFFCBD5E1),
+                    iconColor: AppColors.kIconLightColor,
                   ),
                   const SizedBox(width: 10),
                   CustomButton(
                     title: 'New Project',
-                    buttonColor: Color(0XFFF59E0B),
+                    buttonColor: AppColors.kAccentColor,
                     style: AppStyles.bold12Style.copyWith(
-                      color: Color(0XFF020617),
+                      color: AppColors.kOnAccentColor,
                     ),
-                    iconColor: Color(0XFF020617),
+                    iconColor: AppColors.kOnAccentColor,
                   ),
                 ],
               );

@@ -27,7 +27,7 @@ class PieChartIndicatorItem extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: AppStyles.medium12Style.copyWith(color: Color(0XFFCBD5E1)),
+              style: AppStyles.medium12Style.copyWith(color: AppColors.kIconLightColor),
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             ),
@@ -35,13 +35,13 @@ class PieChartIndicatorItem extends StatelessWidget {
           SizedBox(width: 8,),
           Text(
             '$projectsNum projects',
-            style: AppStyles.bold12Style.copyWith(color: Color(0XFFF8FAFC)),
+            style: AppStyles.bold12Style.copyWith(color: AppColors.kNeutralColor),
           ),
           SizedBox(width: 8),
           Container(
             decoration: BoxDecoration(
-              color: Color(0XFF1E2638),
-              border: Border.all(color: Color(0XFF283347)),
+              color: AppColors.kHighlightSurfaceColor,
+              border: Border.all(color: AppColors.kBorderLightColor),
               borderRadius: BorderRadius.circular(4),
             ),
             child: Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/loading_bar.dart';
 
@@ -9,9 +10,9 @@ class CustomQuota extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0XFF161C26),
+        color: AppColors.kCardColor,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0XFF232B3B)),
+        border: Border.all(color: AppColors.kBorderColor),
       ),
       child: Padding(
         padding: const EdgeInsets.all(12),
@@ -22,14 +23,14 @@ class CustomQuota extends StatelessWidget {
                 Text(
                   'Compute Quota',
                   style: AppStyles.semibold12Style.copyWith(
-                    color: Color(0XFFCBD5E1),
+                    color: AppColors.kIconLightColor,
                   ),
                 ),
                 const Spacer(),
                 Text(
                   '82%',
                   style: AppStyles.semibold12Style.copyWith(
-                    color: Color(0XFFFBBF24),
+                    color: AppColors.kAccentLightColor,
                     fontFamily: 'JetBrains Mono',
                   ),
                 ),
@@ -45,7 +46,7 @@ class CustomQuota extends StatelessWidget {
                 Text(
                   'Upgrade',
                   style: AppStyles.semibold11Style.copyWith(
-                    color: const Color(0XFFFBBF24),
+                    color: AppColors.kAccentLightColor,
                   ),
                 ),
               ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
@@ -15,9 +16,9 @@ class CustomNotificationButton extends StatelessWidget {
           height: 36,
           width: 36,
           decoration: BoxDecoration(
-            color: Color(0XFF1A2232),
+            color: AppColors.kRaisedSurfaceColor,
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Color(0XFF232B3B)),
+            border: Border.all(color: AppColors.kBorderColor),
           ),
         ),
 

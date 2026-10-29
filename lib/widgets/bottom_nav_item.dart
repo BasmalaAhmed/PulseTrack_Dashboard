@@ -18,17 +18,16 @@ class BottomNavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const amber = Color(0XFFF59E0B);
-    final color = isActive ? const Color(0XFFFBBF24) : AppColors.kGrey94Color;
+    final color = isActive ? AppColors.kAccentLightColor : AppColors.kGrey94Color;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
         decoration: BoxDecoration(
-          color: isActive ? amber.withValues(alpha: 0.15) : null,
+          color: isActive ? AppColors.kAccentColor.withValues(alpha: 0.15) : null,
           borderRadius: BorderRadius.circular(8),
           border: isActive
-              ? Border.all(color: amber.withValues(alpha: 0.3))
+              ? Border.all(color: AppColors.kAccentColor.withValues(alpha: 0.3))
               : null,
         ),
         child: Column(
@@ -50,7 +49,7 @@ class BottomNavItem extends StatelessWidget {
                     child: CustomDot(
                       height: 6,
                       width: 6,
-                      color: Color(0XFFFBBF24),
+                      color: AppColors.kAccentLightColor,
                     ),
                   )
                 else if (model.badgeCount != null)
@@ -63,13 +62,13 @@ class BottomNavItem extends StatelessWidget {
                         vertical: 1,
                       ),
                       decoration: BoxDecoration(
-                        color: amber,
+                        color: AppColors.kAccentColor,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
                         '${model.badgeCount}',
                         style: AppStyles.semibold10Style.copyWith(
-                          color: const Color(0XFF020617),
+                          color: AppColors.kOnAccentColor,
                           fontSize: 9,
                         ),
                       ),

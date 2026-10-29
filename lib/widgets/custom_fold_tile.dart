@@ -11,17 +11,17 @@ class CustomFoldTile extends StatelessWidget {
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 12),
       horizontalTitleGap: 0,
-      tileColor: const Color(0XFF1A2232),
+      tileColor: AppColors.kRaisedSurfaceColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
-        side: const BorderSide(color: Color(0XFF232B3B)),
+        side: const BorderSide(color: AppColors.kBorderColor),
       ),
       leading: CustomDot(height: 8, width: 8),
       title: Text(
         'Acme Engineering',
         style: AppStyles.medium12Style.copyWith(
           fontFamily: 'JetBrains_Mono',
-          color: const Color(0XFFE2E8F0),
+          color: AppColors.kTextSoftColor,
         ),
       ),
       trailing: const Icon(

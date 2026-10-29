@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/models/drawer_items.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/widgets/bottom_nav_item.dart';
 
 class MobileBottomNav extends StatelessWidget {
@@ -9,9 +10,9 @@ class MobileBottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     final items = drawerItems.take(5).toList();
     return Container(
-      decoration: const BoxDecoration(
-        color: Color(0XFF131924),
-        border: Border(top: BorderSide(color: Color(0XFF1F2937))),
+      decoration: BoxDecoration(
+        color: AppColors.kSurfaceColor,
+        border: Border(top: BorderSide(color: AppColors.kBorderColor)),
       ),
       child: SafeArea(
         child: Padding(

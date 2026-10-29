@@ -13,8 +13,8 @@ class RecentActivitySection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0XFF161C26),
-        border: Border.all(color: Color(0XFF232B3B)),
+        color: AppColors.kCardColor,
+        border: Border.all(color: AppColors.kBorderColor),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -30,7 +30,7 @@ class RecentActivitySection extends StatelessWidget {
                       Text(
                         'Recent Activity & Audit Log',
                         style: AppStyles.bold14Style.copyWith(
-                          color: Color(0XFFF8FAFC),
+                          color: AppColors.kNeutralColor,
                         ),
                       ),
                       SizedBox(height: 2),
@@ -47,10 +47,10 @@ class RecentActivitySection extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Color(0XFF10B981).withValues(alpha: 0.1),
+                      color: AppColors.kGreenColor.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(30),
                       border: Border.all(
-                        color: Color(0XFF10B981).withValues(alpha: 0.2),
+                        color: AppColors.kGreenColor.withValues(alpha: 0.2),
                       ),
                     ),
                     child: Padding(
@@ -63,13 +63,13 @@ class RecentActivitySection extends StatelessWidget {
                           CustomDot(
                             height: 8,
                             width: 8,
-                            color: Color(0XFF34D399),
+                            color: AppColors.kGreenLightColor,
                           ),
                           SizedBox(width: 6),
                           Text(
                             'Live Feed',
                             style: AppStyles.semibold11Style.copyWith(
-                              color: Color(0XFF34D399),
+                              color: AppColors.kGreenLightColor,
                             ),
                           ),
                         ],
@@ -80,7 +80,7 @@ class RecentActivitySection extends StatelessWidget {
               ],
             ),
           ),
-          Divider(color: Color(0XFF232B3B), height: 0),
+          Divider(color: AppColors.kBorderColor, height: 0),
           if (fillHeight)
             Expanded(
               child: Align(

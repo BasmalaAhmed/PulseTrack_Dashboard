@@ -30,9 +30,9 @@ class RecentActivityItem extends StatelessWidget {
           width: 28,
           height: 28,
           decoration: ShapeDecoration(
-            color: iconColor ?? Color(0XFF1E2638),
+            color: iconColor ?? AppColors.kHighlightSurfaceColor,
             shape: OvalBorder(
-              side: BorderSide(color: iconBorder ?? Color(0XFF283347)),
+              side: BorderSide(color: iconBorder ?? AppColors.kBorderLightColor),
             ),
           ),
           child: Padding(
@@ -51,7 +51,7 @@ class RecentActivityItem extends StatelessWidget {
                     TextSpan(
                       text: user,
                       style: AppStyles.semibold12Style.copyWith(
-                        color: Color(0XFFE2E8F0),
+                        color: AppColors.kTextSoftColor,
                       ),
                     ),
                     TextSpan(
@@ -63,7 +63,7 @@ class RecentActivityItem extends StatelessWidget {
                     TextSpan(
                       text: msg,
                       style: AppStyles.medium11Style.copyWith(
-                        color: msgColor ?? Color(0XFFFBBF24),
+                        color: msgColor ?? AppColors.kAccentLightColor,
                         fontFamily: fontFamily,
                       ),
                     ),

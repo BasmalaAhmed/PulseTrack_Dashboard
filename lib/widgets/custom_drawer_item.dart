@@ -23,20 +23,20 @@ class CustomDrawerItem extends StatelessWidget {
       onTap: onTap,
       contentPadding: const EdgeInsets.symmetric(horizontal: 12),
       tileColor: isActive
-          ? const Color(0XFFF59E0B).withValues(alpha: 0.15)
+          ? AppColors.kAccentColor.withValues(alpha: 0.15)
           : null,
       shape: isActive
           ? RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
               side: BorderSide(
-                color: const Color(0XFFF59E0B).withValues(alpha: 0.3),
+                color: AppColors.kAccentColor.withValues(alpha: 0.3),
               ),
             )
           : null,
       leading: SvgPicture.asset(
         drawerItemModel.icon,
         colorFilter: ColorFilter.mode(
-          isActive ? const Color(0XFFFBBF24) : AppColors.kGrey94Color,
+          isActive ? AppColors.kAccentLightColor : AppColors.kGrey94Color,
           BlendMode.srcIn,
         ),
       ),
@@ -44,7 +44,7 @@ class CustomDrawerItem extends StatelessWidget {
         drawerItemModel.title,
         style: AppStyles.regular14Style.copyWith(
           fontWeight: FontWeight.w600,
-          color: isActive ? const Color(0XFFFBBF24) : const Color(0XFFCBD5E1),
+          color: isActive ? AppColors.kAccentLightColor : AppColors.kIconLightColor,
         ),
       ),
       trailing: isActive
@@ -53,13 +53,13 @@ class CustomDrawerItem extends StatelessWidget {
           ? Container(
               padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
               decoration: BoxDecoration(
-                color: Color(0XFFF59E0B),
+                color: AppColors.kAccentColor,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(
                 '${drawerItemModel.badgeCount}',
                 style: AppStyles.semibold10Style.copyWith(
-                  color: const Color(0XFF020617),
+                  color: AppColors.kOnAccentColor,
                   fontSize: 9,
                 ),
               ),

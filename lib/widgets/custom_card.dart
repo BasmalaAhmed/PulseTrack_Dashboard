@@ -14,9 +14,9 @@ class CustomCard extends StatelessWidget {
     return Card(
       elevation: 0,
       margin: EdgeInsets.zero,
-      color: Color(0XFF161C26),
+      color: AppColors.kCardColor,
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: Color(0XFF232B3B)),
+        side: BorderSide(color: AppColors.kBorderColor),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
@@ -57,7 +57,7 @@ class CustomCard extends StatelessWidget {
                     child: Text(
                       cardModel.number,
                       style: AppStyles.bold24Style.copyWith(
-                        color: Color(0XFFF8FAFC),
+                        color: AppColors.kNeutralColor,
                         letterSpacing: -0.6,
                       ),
                     ),

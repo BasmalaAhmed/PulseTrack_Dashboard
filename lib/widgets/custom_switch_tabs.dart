@@ -11,9 +11,9 @@ class CustomSwitchTabs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0XFF131924),
+        color: AppColors.kSurfaceColor,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Color(0XFF232B3B)),
+        border: Border.all(color: AppColors.kBorderColor),
       ),
       child: Padding(
         padding: const EdgeInsets.all(4),
@@ -21,16 +21,16 @@ class CustomSwitchTabs extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color(0XFF1E2638),
+                color: AppColors.kHighlightSurfaceColor,
                 borderRadius: BorderRadius.circular(6),
                 border: Border.all(
-                  color: Color(0XFF2B364D)
+                  color: AppColors.kButtonBorderColor
                 )
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 child: Text('Story Points' , style: AppStyles.semibold12Style.copyWith(
-                  color: Color(0XFFFBBF24)
+                  color: AppColors.kAccentLightColor
                 ),),
               ),
             ),

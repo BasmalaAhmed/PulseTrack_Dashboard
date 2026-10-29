@@ -1,9 +1,10 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/view/dashboard_view.dart';
 
 void main() {
-  runApp(DevicePreview(enabled: true, builder: (context) => const PulseTrackApp()));
+  runApp(DevicePreview(enabled: false, builder: (context) => const PulseTrackApp()));
 }
 
 class PulseTrackApp extends StatelessWidget {
@@ -19,7 +20,7 @@ class PulseTrackApp extends StatelessWidget {
         return child!;
       },
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Color(0XFF0B0F17)),
+      theme: ThemeData(scaffoldBackgroundColor: AppColors.kScaffoldColor),
       home: DashboardView(),
     );
   }

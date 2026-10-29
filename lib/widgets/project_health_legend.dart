@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/widgets/pie_chart_indicator_item.dart';
 
 class ProjectHealthLegend extends StatelessWidget {
@@ -10,21 +11,21 @@ class ProjectHealthLegend extends StatelessWidget {
       children: [
         const PieChartIndicatorItem(
           title: 'On Track',
-          dotColor: Color(0XFF10B981),
+          dotColor: AppColors.kGreenColor,
           projectsNum: 9,
           percent: 65,
         ),
         const SizedBox(height: 10),
         const PieChartIndicatorItem(
           title: 'At Risk',
-          dotColor: Color(0XFFFBBF24),
+          dotColor: AppColors.kAccentLightColor,
           projectsNum: 3,
           percent: 22,
         ),
         const SizedBox(height: 10),
         const PieChartIndicatorItem(
           title: 'Delayed',
-          dotColor: Color(0XFFEF4444),
+          dotColor: AppColors.kDangerColor,
           projectsNum: 2,
           percent: 13,
         ),

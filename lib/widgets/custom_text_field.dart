@@ -9,12 +9,12 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       textAlignVertical: TextAlignVertical.center,
-      style: AppStyles.regular12Style.copyWith(color: const Color(0XFFE2E8F0)),
+      style: AppStyles.regular12Style.copyWith(color: AppColors.kTextSoftColor),
       decoration: InputDecoration(
         isDense: true,
         contentPadding: const EdgeInsets.symmetric(horizontal: 12),
         filled: true,
-        fillColor: Color(0XFF1A2232),
+        fillColor: AppColors.kRaisedSurfaceColor,
         prefixIcon: Icon(
           Icons.search_rounded,
           color: AppColors.kGrey94Color,
@@ -32,11 +32,11 @@ class CustomTextField extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: Color(0XFF232B3B)),
+          borderSide: BorderSide(color: AppColors.kBorderColor),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: Color(0XFF232B3B)),
+          borderSide: BorderSide(color: AppColors.kBorderColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),

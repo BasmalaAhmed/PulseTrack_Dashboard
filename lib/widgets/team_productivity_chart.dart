@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
 
 class TeamProductivityChart extends StatelessWidget {
   const TeamProductivityChart({super.key});
@@ -41,12 +42,12 @@ class ChartPainter extends CustomPainter {
       ..close();
 
     final areaPaint = Paint()
-      ..shader = const LinearGradient(
+      ..shader = LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-          Color(0x55FF9800),
-          Color(0x00FF9800),
+          AppColors.kMiniChartAreaStartColor,
+          AppColors.kMiniChartAreaEndColor,
         ],
       ).createShader(
         Rect.fromLTWH(0, 0, size.width, size.height),
@@ -56,7 +57,7 @@ class ChartPainter extends CustomPainter {
 
     // Chart line
     final linePaint = Paint()
-      ..color = const Color(0xFFFFA000)
+      ..color = AppColors.kAccentColor
       ..strokeWidth = 3
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round

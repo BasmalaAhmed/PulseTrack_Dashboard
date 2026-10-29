@@ -6,11 +6,11 @@ import 'package:pulse_track_dashboard/utils/app_styles.dart';
 class WeeklyProductivityChart extends StatelessWidget {
   const WeeklyProductivityChart({super.key});
 
-  static const Color plannedColor = Color(0xFF263249);
-  static const Color completedColor = Color(0xFFCBD5E1);
-  static const Color highlightColor = Color(0xFFFFAA00);
-  static const Color labelColor = Color(0xFF718096);
-  static const Color gridColor = Color(0xFF202938);
+  static const Color plannedColor = AppColors.kChartPlannedColor;
+  static const Color completedColor = AppColors.kIconLightColor;
+  static const Color highlightColor = AppColors.kAccentColor;
+  static const Color labelColor = AppColors.kGrey64Color;
+  static const Color gridColor = AppColors.kBorderColor;
 
   final List<double> planned = const [36, 44, 42, 39, 46, 22, 14];
 

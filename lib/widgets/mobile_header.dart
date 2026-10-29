@@ -17,8 +17,8 @@ class MobileHeader extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0XFF131924),
-        border: Border(bottom: BorderSide(color: Color(0XFF2B3547))),
+        color: AppColors.kSurfaceColor,
+        border: Border(bottom: BorderSide(color: AppColors.kBorderLightColor)),
       ),
       child: SafeArea(
         bottom: false,
@@ -33,7 +33,7 @@ class MobileHeader extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(bottom: 16),
                 decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Color(0XFF2B3547))),
+                  border: Border(bottom: BorderSide(color: AppColors.kBorderLightColor)),
                 ),
                 child: Row(
                   children: [
@@ -76,7 +76,7 @@ class MobileHeader extends StatelessWidget {
                                   'Acme Engineering',
                                   style: AppStyles.medium12Style.copyWith(
                                     fontFamily: 'JetBrains_Mono',
-                                    color: const Color(0XFFE2E8F0),
+                                    color: AppColors.kTextSoftColor,
                                   ),
                                 ),
                                 const SizedBox(width: 4),
@@ -126,22 +126,22 @@ class MobileHeader extends StatelessWidget {
                   Expanded(
                     child: CustomButton(
                       title: 'New Task',
-                      buttonColor: const Color(0XFF161C26),
+                      buttonColor: AppColors.kCardColor,
                       style: AppStyles.semibold12Style.copyWith(
-                        color: const Color(0XFFF1F5F9),
+                        color: AppColors.kNeutralColor,
                       ),
-                      iconColor: const Color(0XFFCBD5E1),
+                      iconColor: AppColors.kIconLightColor,
                     ),
                   ),
                   const SizedBox(width: 10),
                   Expanded(
                     child: CustomButton(
                       title: 'New Project',
-                      buttonColor: const Color(0XFFF59E0B),
+                      buttonColor: AppColors.kAccentColor,
                       style: AppStyles.semibold12Style.copyWith(
-                        color: const Color(0XFF020617),
+                        color: AppColors.kOnAccentColor,
                       ),
-                      iconColor: const Color(0XFF020617),
+                      iconColor: AppColors.kOnAccentColor,
                     ),
                   ),
                 ],

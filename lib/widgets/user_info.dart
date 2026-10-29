@@ -14,7 +14,7 @@ class UserInfo extends StatelessWidget {
       title: Text(
         'Alex Chen',
         style: AppStyles.semibold12Style.copyWith(
-          color: const Color(0XFFF8FAFC),
+          color: AppColors.kNeutralColor,
         ),
       ),
       subtitle: Text('Senior Tech', style: AppStyles.regular11Style),

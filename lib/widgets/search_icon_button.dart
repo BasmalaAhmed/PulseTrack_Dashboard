@@ -12,9 +12,9 @@ class SearchIconButton extends StatelessWidget {
         width: 36,
         height: 36,
         decoration: BoxDecoration(
-          color: const Color(0XFF1A2232),
+          color: AppColors.kRaisedSurfaceColor,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: const Color(0XFF232B3B)),
+          border: Border.all(color: AppColors.kBorderColor),
         ),
         child: Icon(
           Icons.search_rounded,

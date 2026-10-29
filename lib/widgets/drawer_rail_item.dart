@@ -29,11 +29,11 @@ class DrawerRailItem extends StatelessWidget {
             height: 44,
             decoration: BoxDecoration(
               color: isActive
-                  ? Color(0XFFF59E0B).withValues(alpha: 0.15)
+                  ? AppColors.kAccentColor.withValues(alpha: 0.15)
                   : null,
               borderRadius: BorderRadius.circular(8),
               border: isActive
-                  ? Border.all(color: Color(0XFFF59E0B).withValues(alpha: 0.3))
+                  ? Border.all(color: AppColors.kAccentColor.withValues(alpha: 0.3))
                   : null,
             ),
             child: Stack(
@@ -42,7 +42,7 @@ class DrawerRailItem extends StatelessWidget {
                 SvgPicture.asset(
                   drawerItemModel.icon,
                   colorFilter: ColorFilter.mode(
-                    isActive ? Color(0XFFFBBF24) : AppColors.kGrey94Color,
+                    isActive ? AppColors.kAccentLightColor : AppColors.kGrey94Color,
                     BlendMode.srcIn,
                   ),
                 ),
@@ -53,7 +53,7 @@ class DrawerRailItem extends StatelessWidget {
                     child: CustomDot(
                       height: 6,
                       width: 6,
-                      color: Color(0XFFFBBF24),
+                      color: AppColors.kAccentLightColor,
                     ),
                   )
                 else if (drawerItemModel.badgeCount != null)
@@ -66,13 +66,13 @@ class DrawerRailItem extends StatelessWidget {
                         vertical: 1,
                       ),
                       decoration: BoxDecoration(
-                        color: Color(0XFFF59E0B),
+                        color: AppColors.kAccentColor,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
                         '${drawerItemModel.badgeCount}',
                         style: AppStyles.semibold10Style.copyWith(
-                          color: const Color(0XFF020617),
+                          color: AppColors.kOnAccentColor,
                           fontSize: 9,
                         ),
                       ),

@@ -26,7 +26,7 @@ class _ProjectHealthChartState extends State<ProjectHealthChart> {
             children: [
               Text(
                 '14',
-                style: AppStyles.bold24Style.copyWith(color: Color(0XFFF8FAFC)),
+                style: AppStyles.bold24Style.copyWith(color: AppColors.kNeutralColor),
               ),
               Text(
                 'INITIATIVES',
@@ -60,19 +60,19 @@ class _ProjectHealthChartState extends State<ProjectHealthChart> {
       sections: [
         PieChartSectionData(
           value: 9,
-          color: Color(0XFF059669),
+          color: AppColors.kGreenDarkColor,
           radius: activeIndex == 0 ? 28 : 20,
           showTitle: false,
         ),
         PieChartSectionData(
           value: 3,
-          color: Color(0XFFF59E0B),
+          color: AppColors.kAccentColor,
           radius: activeIndex == 1 ? 28 : 20,
           showTitle: false,
         ),
         PieChartSectionData(
           value: 2,
-          color: Color(0XFFEF4444),
+          color: AppColors.kDangerColor,
           radius: activeIndex == 2 ? 28 : 20,
           showTitle: false,
         ),

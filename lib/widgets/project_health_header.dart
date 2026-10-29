@@ -19,7 +19,7 @@ class ProjectHealthHeader extends StatelessWidget {
               Text(
                 'Project Health',
                 style: AppStyles.bold14Style.copyWith(
-                  color: const Color(0XFFF8FAFC),
+                  color: AppColors.kNeutralColor,
                 ),
               ),
               const SizedBox(height: 2),

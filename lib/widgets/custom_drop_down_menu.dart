@@ -34,18 +34,18 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
           label: value,
           style: MenuItemButton.styleFrom(
             textStyle: AppStyles.medium12Style,
-            foregroundColor: Color(0XFFE2E8F0),
+            foregroundColor: AppColors.kTextSoftColor,
           ),
         );
       }).toList(),
-      textStyle: AppStyles.medium12Style.copyWith(color: Color(0XFFE2E8F0)),
+      textStyle: AppStyles.medium12Style.copyWith(color: AppColors.kTextSoftColor),
       decorationBuilder: (context, controller) {
         return InputDecoration(
           isDense: true,
           isCollapsed: true,
           contentPadding: EdgeInsets.zero,
           filled: true,
-          fillColor: Color(0XFF1A2232),
+          fillColor: AppColors.kRaisedSurfaceColor,
           prefixIcon: Icon(
             Icons.calendar_today_rounded,
             size: 16,
@@ -66,11 +66,11 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: Color(0XFF232B3B)),
+            borderSide: BorderSide(color: AppColors.kBorderColor),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: Color(0XFF232B3B)),
+            borderSide: BorderSide(color: AppColors.kBorderColor),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
@@ -80,7 +80,7 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
       },
       menuStyle: MenuStyle(
         backgroundColor: WidgetStatePropertyAll<Color>(
-          AppColors.kTertiaryColor,
+          AppColors.kHighlightSurfaceColor,
         ),
       ),
     );

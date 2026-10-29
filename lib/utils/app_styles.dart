@@ -30,7 +30,7 @@ abstract class AppStyles {
   );
 
   static TextStyle bold11Style = TextStyle(
-    color: AppColors.kTertiaryColor,
+    color: AppColors.kHighlightSurfaceColor,
     fontFamily: 'Plus_Jakarta_Sans',
     fontSize: 11,
     fontWeight: FontWeight.w700,

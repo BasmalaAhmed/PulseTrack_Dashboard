@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/project_health_chart.dart';
 import 'package:pulse_track_dashboard/widgets/project_health_header.dart';
@@ -12,8 +13,8 @@ class ProjectHealthSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0XFF161C26),
-        border: Border.all(color: const Color(0XFF232B3B)),
+        color: AppColors.kCardColor,
+        border: Border.all(color: AppColors.kBorderColor),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
@@ -51,12 +52,12 @@ class ProjectHealthSection extends StatelessWidget {
             ),
             Column(
               children: [
-                const Divider(color: Color(0XFF232B3B)),
+                const Divider(color: AppColors.kBorderColor),
                 const SizedBox(height: 22),
                 Text(
                   'View Portfolio Health Matrix >',
                   style: AppStyles.semibold12Style.copyWith(
-                    color: const Color(0XFFFBBF24),
+                    color: AppColors.kAccentLightColor,
                   ),
                 ),
               ],

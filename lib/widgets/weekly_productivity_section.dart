@@ -13,9 +13,9 @@ class WeeklyProductivitySection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0XFF161C26),
+        color: AppColors.kCardColor,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Color(0XFF232B3B)),
+        border: Border.all(color: AppColors.kBorderColor),
       ),
       child: Padding(
         padding: const EdgeInsets.all(25),
@@ -24,7 +24,7 @@ class WeeklyProductivitySection extends StatelessWidget {
           children: [
             Text(
               'Weekly Productivity & Sprint Velocity',
-              style: AppStyles.bold14Style.copyWith(color: Color(0XFFF8FAFC)),
+              style: AppStyles.bold14Style.copyWith(color: AppColors.kNeutralColor),
             ),
             Text(
               'Comparison between planned commitments and completed outputs',
@@ -40,10 +40,10 @@ class WeeklyProductivitySection extends StatelessWidget {
               child: FittedBox(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color(0XFF0A0E16),
+                    color: AppColors.kScaffoldColor,
                     borderRadius: BorderRadius.circular(4),
                     border: Border.all(
-                      color: Color(0XFFF59E0B).withValues(alpha: 0.4),
+                      color: AppColors.kAccentColor.withValues(alpha: 0.4),
                     ),
                   ),
                   child: Padding(
@@ -58,7 +58,7 @@ class WeeklyProductivitySection extends StatelessWidget {
                         Text(
                           '52 SP Completed (+12% peak)',
                           style: AppStyles.medium11Style.copyWith(
-                            color: Color(0XFFFCD34D),
+                            color: AppColors.kAccentLighterColor,
                           ),
                         ),
                       ],
@@ -75,16 +75,16 @@ class WeeklyProductivitySection extends StatelessWidget {
               children: [
                 BarChartIndicatorItem(
                   title: 'Delivered Story Points',
-                  color: Color(0xFFCBD5E1),
+                  color: AppColors.kIconLightColor,
                 ),
                 BarChartIndicatorItem(
                   title: 'Peak Sprint Velocity',
-                  color: Color(0XFFFBBF24),
+                  color: AppColors.kAccentColor,
                 ),
                 BarChartIndicatorItem(
                   title: 'Committed Target',
-                  titleColor: Color(0XFF94A3B8),
-                  color: Color(0XFF253046),
+                  titleColor: AppColors.kGrey94Color,
+                  color: AppColors.kChartPlannedColor,
                 ),
               ],
             ),
