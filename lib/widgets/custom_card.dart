@@ -11,12 +11,13 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Card(
       elevation: 0,
       margin: EdgeInsets.zero,
-      color: AppColors.kCardColor,
+      color: AppColors.card(context),
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: AppColors.kBorderColor),
+        side: BorderSide(color: colors.outline),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
@@ -33,7 +34,7 @@ class CustomCard extends StatelessWidget {
                     child: Text(
                       cardModel.title,
                       style: AppStyles.semibold12Style.copyWith(
-                        color: AppColors.kGrey94Color,
+                        color: colors.onSurfaceVariant,
                       ),
                     ),
                   ),
@@ -57,7 +58,7 @@ class CustomCard extends StatelessWidget {
                     child: Text(
                       cardModel.number,
                       style: AppStyles.bold24Style.copyWith(
-                        color: AppColors.kNeutralColor,
+                        color: colors.onSurface,
                         letterSpacing: -0.6,
                       ),
                     ),

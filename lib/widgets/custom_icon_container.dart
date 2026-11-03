@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 
 class CustomIconContainer extends StatelessWidget {
   const CustomIconContainer({super.key, required this.icon, this.color, this.borderColor, this.iconColor});
@@ -11,15 +10,16 @@ class CustomIconContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       height: 32,
       width: 32,
       decoration: BoxDecoration(
-        color: color ?? AppColors.kRaisedSurfaceColor,
+        color: color ?? colors.secondaryContainer,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: borderColor ?? AppColors.kBorderColor),
+        border: Border.all(color: borderColor ?? colors.outline),
       ),
-      child: Center(child: FaIcon(icon, color: iconColor ?? AppColors.kIconLightColor, size: 16,)),
+      child: Center(child: FaIcon(icon, color: iconColor ?? colors.onSecondaryContainer, size: 16,)),
     );
   }
 }
