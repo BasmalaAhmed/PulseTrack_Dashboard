@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pulse_track_dashboard/models/drawer_item_model.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
@@ -18,16 +17,17 @@ class BottomNavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isActive ? AppColors.kAccentLightColor : AppColors.kGrey94Color;
+    final colors = Theme.of(context).colorScheme;
+    final color = isActive ? colors.secondary : colors.onSurfaceVariant;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
         decoration: BoxDecoration(
-          color: isActive ? AppColors.kAccentColor.withValues(alpha: 0.15) : null,
+          color: isActive ? colors.secondary.withValues(alpha: 0.15) : null,
           borderRadius: BorderRadius.circular(8),
           border: isActive
-              ? Border.all(color: AppColors.kAccentColor.withValues(alpha: 0.3))
+              ? Border.all(color: colors.secondary.withValues(alpha: 0.3))
               : null,
         ),
         child: Column(
@@ -46,11 +46,7 @@ class BottomNavItem extends StatelessWidget {
                   Positioned(
                     top: -2,
                     right: -12,
-                    child: CustomDot(
-                      height: 6,
-                      width: 6,
-                      color: AppColors.kAccentLightColor,
-                    ),
+                    child: CustomDot(height: 6, width: 6),
                   )
                 else if (model.badgeCount != null)
                   Positioned(
@@ -62,13 +58,13 @@ class BottomNavItem extends StatelessWidget {
                         vertical: 1,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.kAccentColor,
+                        color: colors.secondary,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
                         '${model.badgeCount}',
                         style: AppStyles.semibold10Style.copyWith(
-                          color: AppColors.kOnAccentColor,
+                          color: colors.onSecondary,
                           fontSize: 9,
                         ),
                       ),
