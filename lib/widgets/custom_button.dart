@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -9,12 +8,14 @@ class CustomButton extends StatelessWidget {
     required this.style,
     required this.iconColor,
     this.width,
+    this.borderColor,
   });
   final String title;
   final TextStyle style;
   final Color iconColor;
   final Color buttonColor;
   final double? width;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,9 @@ class CustomButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: buttonColor,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: AppColors.kButtonBorderColor),
+        border: Border.all(
+          color: borderColor ?? Theme.of(context).colorScheme.outlineVariant,
+        ),
       ),
       child: FittedBox(
         fit: BoxFit.scaleDown,

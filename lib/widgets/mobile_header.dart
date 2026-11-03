@@ -14,11 +14,12 @@ class MobileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.kSurfaceColor,
-        border: Border(bottom: BorderSide(color: AppColors.kBorderLightColor)),
+        color: colors.surface,
+        border: Border(bottom: BorderSide(color: colors.outline)),
       ),
       child: SafeArea(
         bottom: false,
@@ -33,7 +34,7 @@ class MobileHeader extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(bottom: 16),
                 decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: AppColors.kBorderLightColor)),
+                  border: Border(bottom: BorderSide(color: colors.outline)),
                 ),
                 child: Row(
                   children: [
@@ -60,7 +61,7 @@ class MobileHeader extends StatelessWidget {
                                   maxLines: 1,
                                   softWrap: false,
                                   style: AppStyles.bold16Style.copyWith(
-                                    color: AppColors.kNeutralColor,
+                                    color: colors.onSurface,
                                   ),
                                 ),
                                 const SizedBox(width: 6),
@@ -104,7 +105,7 @@ class MobileHeader extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: AppStyles.bold16Style.copyWith(
-                  color: AppColors.kNeutralColor,
+                  color: colors.onSurface,
                 ),
               ),
               const SizedBox(height: 4),
@@ -116,7 +117,7 @@ class MobileHeader extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: AppStyles.regular12Style.copyWith(
-                    color: AppColors.kGrey94Color,
+                    color: colors.onSurfaceVariant,
                   ),
                 ),
               ),
@@ -125,23 +126,24 @@ class MobileHeader extends StatelessWidget {
                 children: [
                   Expanded(
                     child: CustomButton(
-                      title: 'New Task',
-                      buttonColor: AppColors.kCardColor,
+                      title: 'Task',
+                      buttonColor: colors.surfaceContainerHighest,
                       style: AppStyles.semibold12Style.copyWith(
-                        color: AppColors.kNeutralColor,
+                        color: colors.onSurface,
                       ),
-                      iconColor: AppColors.kIconLightColor,
+                      iconColor: colors.onSurface,
                     ),
                   ),
                   const SizedBox(width: 10),
                   Expanded(
                     child: CustomButton(
-                      title: 'New Project',
-                      buttonColor: AppColors.kAccentColor,
+                      title: 'Project',
+                      buttonColor: colors.secondary,
                       style: AppStyles.semibold12Style.copyWith(
-                        color: AppColors.kOnAccentColor,
+                        color: colors.onSecondary,
                       ),
-                      iconColor: AppColors.kOnAccentColor,
+                      iconColor: colors.onSecondary,
+                      borderColor: colors.secondary,
                     ),
                   ),
                 ],

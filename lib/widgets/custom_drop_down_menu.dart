@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 
 class CustomDropDownMenu extends StatefulWidget {
@@ -16,6 +15,7 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return DropdownMenu<String>(
       expandedInsets: EdgeInsets.zero,
       initialSelection: _selectedValue,
@@ -34,22 +34,22 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
           label: value,
           style: MenuItemButton.styleFrom(
             textStyle: AppStyles.medium12Style,
-            foregroundColor: AppColors.kTextSoftColor,
+            foregroundColor: colors.onSurface,
           ),
         );
       }).toList(),
-      textStyle: AppStyles.medium12Style.copyWith(color: AppColors.kTextSoftColor),
+      textStyle: AppStyles.medium12Style.copyWith(color: colors.onSurface),
       decorationBuilder: (context, controller) {
         return InputDecoration(
           isDense: true,
           isCollapsed: true,
           contentPadding: EdgeInsets.zero,
           filled: true,
-          fillColor: AppColors.kRaisedSurfaceColor,
+          fillColor: colors.surfaceContainerHighest,
           prefixIcon: Icon(
             Icons.calendar_today_rounded,
             size: 16,
-            color: AppColors.kGrey94Color,
+            color: colors.onSurfaceVariant,
           ),
           prefixIconConstraints: const BoxConstraints(
             minWidth: 36,
@@ -57,7 +57,7 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
           ),
           suffixIcon: Icon(
             Icons.keyboard_arrow_down_rounded,
-            color: AppColors.kGrey94Color,
+            color: colors.onSurfaceVariant,
             size: 18,
           ),
           suffixIconConstraints: const BoxConstraints(
@@ -66,21 +66,21 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: AppColors.kBorderColor),
+            borderSide: BorderSide(color: colors.outline),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: AppColors.kBorderColor),
+            borderSide: BorderSide(color: colors.outline),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: AppColors.kSecondaryColor),
+            borderSide: BorderSide(color: colors.secondary),
           ),
         );
       },
       menuStyle: MenuStyle(
         backgroundColor: WidgetStatePropertyAll<Color>(
-          AppColors.kHighlightSurfaceColor,
+          colors.surfaceContainerHighest,
         ),
       ),
     );

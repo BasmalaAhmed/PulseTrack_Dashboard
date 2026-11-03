@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_button.dart';
 import 'package:pulse_track_dashboard/widgets/custom_notification_button.dart';
@@ -12,10 +11,11 @@ class DesktopHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.kSurfaceColor,
-        border: Border(bottom: BorderSide(color: AppColors.kBorderColor)),
+        color: colors.surface,
+        border: Border(bottom: BorderSide(color: colors.outline)),
       ),
       child: SafeArea(
         left: false,
@@ -41,7 +41,7 @@ class DesktopHeader extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: AppStyles.bold16Style.copyWith(
-                            color: AppColors.kNeutralColor,
+                            color: colors.onSurface,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -50,7 +50,7 @@ class DesktopHeader extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: AppStyles.regular12Style.copyWith(
-                            color: AppColors.kGrey94Color,
+                            color: colors.onSurfaceVariant,
                           ),
                         ),
                       ],
@@ -77,25 +77,27 @@ class DesktopHeader extends StatelessWidget {
                   SizedBox(
                     height: 20,
                     width: 5,
-                    child: VerticalDivider(color: AppColors.kBorderColor),
+                    child: VerticalDivider(color: colors.outline),
                   ),
                   const SizedBox(width: 10),
                   CustomButton(
-                    title: 'New Task',
-                    buttonColor: AppColors.kHighlightSurfaceColor,
+                    title: 'Task',
+                    buttonColor: colors.surfaceContainerHighest,
                     style: AppStyles.semibold12Style.copyWith(
-                      color: AppColors.kNeutralColor,
+                      color: colors.onSurface,
                     ),
-                    iconColor: AppColors.kIconLightColor,
+                    iconColor: colors.onSurface,
+                    
                   ),
                   const SizedBox(width: 10),
                   CustomButton(
-                    title: 'New Project',
-                    buttonColor: AppColors.kAccentColor,
+                    title: 'Project',
+                    buttonColor: colors.secondary,
                     style: AppStyles.bold12Style.copyWith(
-                      color: AppColors.kOnAccentColor,
+                      color: colors.onSecondary,
                     ),
-                    iconColor: AppColors.kOnAccentColor,
+                    iconColor: colors.onSecondary,
+                    borderColor: colors.secondary,
                   ),
                 ],
               );

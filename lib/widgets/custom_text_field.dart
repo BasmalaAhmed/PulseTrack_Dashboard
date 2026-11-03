@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -7,17 +6,18 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return TextFormField(
       textAlignVertical: TextAlignVertical.center,
-      style: AppStyles.regular12Style.copyWith(color: AppColors.kTextSoftColor),
+      style: AppStyles.regular12Style.copyWith(color: colors.onSurface),
       decoration: InputDecoration(
         isDense: true,
         contentPadding: const EdgeInsets.symmetric(horizontal: 12),
         filled: true,
-        fillColor: AppColors.kRaisedSurfaceColor,
+        fillColor: colors.surfaceContainerHighest,
         prefixIcon: Icon(
           Icons.search_rounded,
-          color: AppColors.kGrey94Color,
+          color: colors.onSurfaceVariant,
           size: 20,
         ),
         prefixIconConstraints: const BoxConstraints(
@@ -32,15 +32,15 @@ class CustomTextField extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: AppColors.kBorderColor),
+          borderSide: BorderSide(color: colors.outline),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: AppColors.kBorderColor),
+          borderSide: BorderSide(color: colors.outline),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: AppColors.kGrey33Color),
+          borderSide: BorderSide(color: colors.secondary),
         ),
       ),
     );
