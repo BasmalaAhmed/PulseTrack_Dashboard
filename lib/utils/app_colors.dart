@@ -12,11 +12,14 @@ abstract class AppColors {
   static const kGrey94Color = Color(0XFF94A3B8);
 
   // Background and surfaces
-  static const kScaffoldColor = Color(0XFF0B0F17);
+  static Color scaffold(BuildContext context) =>
+    Theme.of(context).scaffoldBackgroundColor;
 
-  static const kSurfaceColor = Color(0XFF131924);
+  static Color surface(BuildContext context) =>
+    Theme.of(context).colorScheme.surface;
 
-  static const kCardColor = Color(0XFF161C26);
+  static Color card(BuildContext context) =>
+    Theme.of(context).cardColor;
 
   static const kRaisedSurfaceColor = Color(0XFF1A2232);
 

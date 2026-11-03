@@ -9,8 +9,8 @@ abstract class AppStyles {
     fontWeight: FontWeight.w600,
   );
 
-  static TextStyle regular11Style = TextStyle(
-    color: AppColors.kGrey94Color,
+  static TextStyle regular11Style(BuildContext context) => TextStyle(
+    color: Theme.of(context).colorScheme.onSurfaceVariant,
     fontFamily: 'Plus_Jakarta_Sans',
     fontSize: 11,
   );

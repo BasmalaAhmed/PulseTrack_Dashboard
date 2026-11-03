@@ -1,6 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
+import 'package:pulse_track_dashboard/core/theme/app_theme.dart';
 import 'package:pulse_track_dashboard/view/dashboard_view.dart';
 
 void main() {
@@ -20,8 +20,10 @@ class PulseTrackApp extends StatelessWidget {
         return child!;
       },
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: AppColors.kScaffoldColor),
-      home: DashboardView(),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.light,
+      home: const DashboardView(),
     );
   }
 }
