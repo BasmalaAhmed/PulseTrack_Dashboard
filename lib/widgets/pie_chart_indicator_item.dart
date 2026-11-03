@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
@@ -18,6 +17,7 @@ class PieChartIndicatorItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Row(
@@ -27,29 +27,33 @@ class PieChartIndicatorItem extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: AppStyles.medium12Style.copyWith(color: AppColors.kIconLightColor),
+              style: AppStyles.medium12Style.copyWith(
+                color: colors.onSurfaceVariant,
+              ),
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             ),
           ),
-          SizedBox(width: 8,),
+          SizedBox(width: 8),
           Text(
             '$projectsNum projects',
-            style: AppStyles.bold12Style.copyWith(color: AppColors.kNeutralColor),
+            style: AppStyles.bold12Style.copyWith(
+              color: colors.onSurfaceVariant,
+            ),
           ),
           SizedBox(width: 8),
           Container(
             decoration: BoxDecoration(
-              color: AppColors.kHighlightSurfaceColor,
-              border: Border.all(color: AppColors.kBorderLightColor),
+              color: colors.secondaryContainer,
+              border: Border.all(color: colors.outline),
               borderRadius: BorderRadius.circular(4),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               child: Text(
                 '$percent%',
-                style: AppStyles.regular11Style.copyWith(
-                  color: AppColors.kGrey94Color,
+                style: AppStyles.regular11Style(context).copyWith(
+                  color: colors.onSecondaryContainer,
                   fontFamily: 'JetBrains_Mono',
                 ),
               ),

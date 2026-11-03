@@ -14,6 +14,7 @@ class _ProjectHealthChartState extends State<ProjectHealthChart> {
   int activeIndex = -1;
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return SizedBox(
       width: 190,
       height: 190,
@@ -26,12 +27,12 @@ class _ProjectHealthChartState extends State<ProjectHealthChart> {
             children: [
               Text(
                 '14',
-                style: AppStyles.bold24Style.copyWith(color: AppColors.kNeutralColor),
+                style: AppStyles.bold24Style.copyWith(color: colors.onSurface),
               ),
               Text(
                 'INITIATIVES',
                 style: AppStyles.semibold10Style.copyWith(
-                  color: AppColors.kGrey94Color,
+                  color: colors.onSurfaceVariant,
                   fontFamily: 'JetBrains_Mono',
                   letterSpacing: 0.5,
                 ),

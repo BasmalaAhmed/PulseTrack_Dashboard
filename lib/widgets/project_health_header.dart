@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 
 class ProjectHealthHeader extends StatelessWidget {
@@ -10,6 +9,7 @@ class ProjectHealthHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Row(
       children: [
         Expanded(
@@ -19,14 +19,14 @@ class ProjectHealthHeader extends StatelessWidget {
               Text(
                 'Project Health',
                 style: AppStyles.bold14Style.copyWith(
-                  color: AppColors.kNeutralColor,
+                  color: colors.onSurface,
                 ),
               ),
               const SizedBox(height: 2),
               Text(
                 'Active portfolio status split',
                 style: AppStyles.regular12Style.copyWith(
-                  color: AppColors.kGrey94Color,
+                  color: colors.onSurfaceVariant,
                 ),
               ),
             ],
@@ -35,7 +35,7 @@ class ProjectHealthHeader extends StatelessWidget {
         const SizedBox(width: 12,),
         FaIcon(
         FontAwesomeIcons.ellipsisVertical,
-        color: AppColors.kGrey94Color,
+        color: colors.onSurfaceVariant,
         size: 16,
       ),
       ],
