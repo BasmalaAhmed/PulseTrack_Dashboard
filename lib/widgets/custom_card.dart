@@ -42,9 +42,6 @@ class CustomCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 CustomIconContainer(
                   icon: cardModel.icon,
-                  color: cardModel.color,
-                  borderColor: cardModel.borderColor,
-                  iconColor: cardModel.iconColor,
                 ),
               ],
             ),

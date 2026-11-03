@@ -114,9 +114,6 @@ class CardsList extends StatelessWidget {
         icon: FontAwesomeIcons.arrowTrendUp,
         number: '94.2%',
         chart: true,
-        color: colors.secondary.withValues(alpha: 0.1),
-        borderColor: isDark ? colors.secondary.withValues(alpha: 0.2) : Colors.transparent,
-        iconColor: colors.secondary,
         widget: FittedBox(
           fit: BoxFit.scaleDown,
           alignment: Alignment.centerLeft,
