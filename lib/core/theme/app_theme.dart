@@ -8,7 +8,7 @@ abstract class AppTheme {
   static const ColorScheme darkColorScheme = ColorScheme.dark(
     // Main accent color
     primary: Color(0xFF020617),
-
+    primaryContainer: Color(0xFF25344D),
     // Secondary accent
     secondary: Color(0xFFF59E0B),
     onSecondary: Color(0XFF020617),
@@ -18,6 +18,7 @@ abstract class AppTheme {
     onTertiaryContainer: Color(0XFF34D399),
     outline: Color(0xFF232B3B),
     outlineVariant: Color(0xFF1E293B),
+    tertiary: Color(0xFFCBD5E1),
     // Surfaces
     surface: Color(0XFF131924),
     onSurface: Color(0xFFE2E8F0),
@@ -33,6 +34,7 @@ abstract class AppTheme {
     // Main accent color
     primary: Color(0xFF0F172A),
     onPrimary: Color(0XFFFFFFFF),
+    primaryContainer: Color(0xFF263249),
     // Secondary accent
     secondary: Color(0xFFD97706),
     onSecondary: Color(0xFF020617),
@@ -42,6 +44,7 @@ abstract class AppTheme {
     onTertiaryContainer: Color(0XFF047857),
     outline: Color(0xFFE2E8F0),
     outlineVariant: Color(0xFFCBD5E1),
+    tertiary: Color(0xFFCBD5E1),
     // Surfaces
     surface: Colors.white,
     onSurface: Color(0xFF334155),

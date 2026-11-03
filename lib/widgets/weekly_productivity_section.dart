@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/bar_chart_indicator_item.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
@@ -11,11 +10,12 @@ class WeeklyProductivitySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.kCardColor,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.kBorderColor),
+        border: Border.all(color: colors.outline),
       ),
       child: Padding(
         padding: const EdgeInsets.all(25),
@@ -24,12 +24,14 @@ class WeeklyProductivitySection extends StatelessWidget {
           children: [
             Text(
               'Weekly Productivity & Sprint Velocity',
-              style: AppStyles.bold14Style.copyWith(color: AppColors.kNeutralColor),
+              style: AppStyles.bold14Style.copyWith(
+                color: colors.onSurface,
+              ),
             ),
             Text(
               'Comparison between planned commitments and completed outputs',
               style: AppStyles.regular12Style.copyWith(
-                color: AppColors.kGrey94Color,
+                color: colors.onSurfaceVariant,
               ),
             ),
             SizedBox(height: 12),
@@ -40,10 +42,10 @@ class WeeklyProductivitySection extends StatelessWidget {
               child: FittedBox(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppColors.kScaffoldColor,
+                    color: Theme.of(context).scaffoldBackgroundColor,
                     borderRadius: BorderRadius.circular(4),
                     border: Border.all(
-                      color: AppColors.kAccentColor.withValues(alpha: 0.4),
+                      color: colors.secondary.withValues(alpha: 0.4),
                     ),
                   ),
                   child: Padding(
@@ -58,7 +60,7 @@ class WeeklyProductivitySection extends StatelessWidget {
                         Text(
                           '52 SP Completed (+12% peak)',
                           style: AppStyles.medium11Style.copyWith(
-                            color: AppColors.kAccentLighterColor,
+                            color: colors.secondary,
                           ),
                         ),
                       ],
@@ -68,31 +70,35 @@ class WeeklyProductivitySection extends StatelessWidget {
               ),
             ),
             SizedBox(height: 320, child: WeeklyProductivityChart()),
-            SizedBox(height: 16,),
+            SizedBox(height: 16),
             Wrap(
               spacing: 24,
               runSpacing: 8,
               children: [
                 BarChartIndicatorItem(
                   title: 'Delivered Story Points',
-                  color: AppColors.kIconLightColor,
+                  color: colors.tertiary,
+                  titleColor: colors.onSurfaceVariant,
                 ),
                 BarChartIndicatorItem(
                   title: 'Peak Sprint Velocity',
-                  color: AppColors.kAccentColor,
+                  color: colors.secondary,
                 ),
                 BarChartIndicatorItem(
                   title: 'Committed Target',
-                  titleColor: AppColors.kGrey94Color,
-                  color: AppColors.kChartPlannedColor,
+                  titleColor: colors.onSurfaceVariant,
+                  color: colors.primaryContainer,
                 ),
               ],
             ),
-            SizedBox(height: 8,),
-            Text('Sprint #48 ends in 4 days', style: AppStyles.regular11Style.copyWith(
-              color: AppColors.kGrey64Color,
-              fontFamily: 'JetBrains_Mono'
-            ),),
+            SizedBox(height: 8),
+            Text(
+              'Sprint #48 ends in 4 days',
+              style: AppStyles.regular11Style(context).copyWith(
+                color: colors.onSurfaceVariant,
+                fontFamily: 'JetBrains_Mono',
+              ),
+            ),
           ],
         ),
       ),

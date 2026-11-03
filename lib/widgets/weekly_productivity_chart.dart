@@ -1,16 +1,9 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 
 class WeeklyProductivityChart extends StatelessWidget {
   const WeeklyProductivityChart({super.key});
-
-  static const Color plannedColor = AppColors.kChartPlannedColor;
-  static const Color completedColor = AppColors.kIconLightColor;
-  static const Color highlightColor = AppColors.kAccentColor;
-  static const Color labelColor = AppColors.kGrey64Color;
-  static const Color gridColor = AppColors.kBorderColor;
 
   final List<double> planned = const [36, 44, 42, 39, 46, 22, 14];
 
@@ -28,6 +21,12 @@ class WeeklyProductivityChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    final gridColor = colors.outline;
+    final plannedColor = colors.primaryContainer;
+    final completedColor = colors.tertiary;
+    final highlightColor = colors.secondary;
+    final labelColor = colors.onSurfaceVariant;
     return BarChart(
       BarChartData(
         maxY: 60,
@@ -75,7 +74,9 @@ class WeeklyProductivityChart extends StatelessWidget {
               getTitlesWidget: (value, meta) {
                 return Text(
                   '${value.toInt()} SP',
-                  style: AppStyles.regular12Style.copyWith(color: labelColor),
+                  style: AppStyles.regular12Style.copyWith(
+                    color: labelColor,
+                  ),
                 );
               },
             ),
@@ -98,7 +99,9 @@ class WeeklyProductivityChart extends StatelessWidget {
                     days[index],
                     style: AppStyles.regular12Style.copyWith(
                       fontSize: 13,
-                      color: isWednesday ? highlightColor : labelColor,
+                      color: isWednesday
+                          ? highlightColor
+                          : labelColor,
                       fontWeight: isWednesday
                           ? FontWeight.bold
                           : FontWeight.normal,
@@ -116,10 +119,12 @@ class WeeklyProductivityChart extends StatelessWidget {
         barTouchData: BarTouchData(
           enabled: true,
           touchTooltipData: BarTouchTooltipData(
+            getTooltipColor: (group) => colors.surfaceContainerHighest,
+            tooltipBorder: BorderSide(color: colors.outline),
             getTooltipItem: (group, groupIndex, rod, rodIndex) {
               return BarTooltipItem(
                 '${rod.toY.toInt()} SP',
-                AppStyles.bold12Style.copyWith(color: AppColors.kNeutralColor),
+                AppStyles.bold12Style.copyWith(color: colors.onSurface),
               );
             },
           ),
