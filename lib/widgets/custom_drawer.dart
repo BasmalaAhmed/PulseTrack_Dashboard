@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_drawer_header.dart';
 import 'package:pulse_track_dashboard/widgets/custom_fold_tile.dart';
@@ -12,11 +11,12 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: AppColors.kSurfaceColor,
+      backgroundColor: colors.surface,
       body: Container(
-        decoration: const BoxDecoration(
-          border: Border(right: BorderSide(color: AppColors.kBorderColor)),
+        decoration: BoxDecoration(
+          border: Border(right: BorderSide(color: colors.outline)),
         ),
         child: SafeArea(
           right: false,
@@ -34,7 +34,7 @@ class CustomDrawer extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AppStyles.medium12Style.copyWith(
-                      color: AppColors.kGrey94Color,
+                      color: colors.onSurfaceVariant,
                     ),
                   ),
                 ),
@@ -43,7 +43,7 @@ class CustomDrawer extends StatelessWidget {
                 SizedBox(height: 20),
                 Expanded(child: DrawerItemListView()),
                 CustomQuota(),
-                Divider(color: AppColors.kBorderColor, height: 24),
+                Divider(color: colors.outline, height: 24),
                 UserInfo(),
               ],
             ),

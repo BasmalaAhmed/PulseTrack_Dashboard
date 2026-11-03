@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
@@ -8,25 +7,26 @@ class CustomFoldTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 12),
       horizontalTitleGap: 0,
-      tileColor: AppColors.kRaisedSurfaceColor,
+      tileColor: colors.surfaceContainerHighest,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
-        side: const BorderSide(color: AppColors.kBorderColor),
+        side: BorderSide(color: colors.outlineVariant),
       ),
       leading: CustomDot(height: 8, width: 8),
       title: Text(
         'Acme Engineering',
         style: AppStyles.medium12Style.copyWith(
           fontFamily: 'JetBrains_Mono',
-          color: AppColors.kTextSoftColor,
+          color: colors.onSurface,
         ),
       ),
-      trailing: const Icon(
+      trailing: Icon(
         Icons.unfold_more_rounded,
-        color: AppColors.kGrey94Color,
+        color: colors.onSurfaceVariant,
       ),
     );
   }

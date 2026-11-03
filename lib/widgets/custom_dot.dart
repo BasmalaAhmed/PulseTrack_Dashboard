@@ -15,9 +15,9 @@ class CustomDot extends StatelessWidget {
               width: height,
               decoration: ShapeDecoration(
                 shape: OvalBorder(
-                  side: isBorder ? BorderSide(color: AppColors.kSurfaceColor, width: 2) : BorderSide.none,
+                  side: isBorder ? BorderSide(color: AppColors.surface(context), width: 2) : BorderSide.none,
                 ),
-                color: color ?? AppColors.kAccentColor,
+                color: color ?? Theme.of(context).colorScheme.secondary,
               ),
             );
   }

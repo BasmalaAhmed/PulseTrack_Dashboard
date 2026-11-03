@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pulse_track_dashboard/models/drawer_item_model.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
@@ -18,6 +17,7 @@ class DrawerRailItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Tooltip(
       message: drawerItemModel.title,
       child: MouseRegion(
@@ -29,11 +29,11 @@ class DrawerRailItem extends StatelessWidget {
             height: 44,
             decoration: BoxDecoration(
               color: isActive
-                  ? AppColors.kAccentColor.withValues(alpha: 0.15)
+                  ? colors.secondary.withValues(alpha: 0.15)
                   : null,
               borderRadius: BorderRadius.circular(8),
               border: isActive
-                  ? Border.all(color: AppColors.kAccentColor.withValues(alpha: 0.3))
+                  ? Border.all(color: colors.secondary.withValues(alpha: 0.3))
                   : null,
             ),
             child: Stack(
@@ -42,7 +42,7 @@ class DrawerRailItem extends StatelessWidget {
                 SvgPicture.asset(
                   drawerItemModel.icon,
                   colorFilter: ColorFilter.mode(
-                    isActive ? AppColors.kAccentLightColor : AppColors.kGrey94Color,
+                    isActive ? colors.secondary : colors.onSurfaceVariant,
                     BlendMode.srcIn,
                   ),
                 ),
@@ -53,7 +53,6 @@ class DrawerRailItem extends StatelessWidget {
                     child: CustomDot(
                       height: 6,
                       width: 6,
-                      color: AppColors.kAccentLightColor,
                     ),
                   )
                 else if (drawerItemModel.badgeCount != null)
@@ -66,13 +65,13 @@ class DrawerRailItem extends StatelessWidget {
                         vertical: 1,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.kAccentColor,
+                        color: colors.secondary,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
                         '${drawerItemModel.badgeCount}',
                         style: AppStyles.semibold10Style.copyWith(
-                          color: AppColors.kOnAccentColor,
+                          color: colors.onSecondary,
                           fontSize: 9,
                         ),
                       ),

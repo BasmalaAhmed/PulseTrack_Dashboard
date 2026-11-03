@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pulse_track_dashboard/models/drawer_item_model.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 
@@ -19,24 +18,21 @@ class CustomDrawerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return ListTile(
       onTap: onTap,
       contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-      tileColor: isActive
-          ? AppColors.kAccentColor.withValues(alpha: 0.15)
-          : null,
+      tileColor: isActive ? colors.secondary.withValues(alpha: 0.15) : null,
       shape: isActive
           ? RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
-              side: BorderSide(
-                color: AppColors.kAccentColor.withValues(alpha: 0.3),
-              ),
+              side: BorderSide(color: colors.secondary.withValues(alpha: 0.3)),
             )
           : null,
       leading: SvgPicture.asset(
         drawerItemModel.icon,
         colorFilter: ColorFilter.mode(
-          isActive ? AppColors.kAccentLightColor : AppColors.kGrey94Color,
+          isActive ? colors.secondary : colors.onSurfaceVariant,
           BlendMode.srcIn,
         ),
       ),
@@ -44,7 +40,7 @@ class CustomDrawerItem extends StatelessWidget {
         drawerItemModel.title,
         style: AppStyles.regular14Style.copyWith(
           fontWeight: FontWeight.w600,
-          color: isActive ? AppColors.kAccentLightColor : AppColors.kIconLightColor,
+          color: isActive ? colors.secondary : colors.onSurfaceVariant,
         ),
       ),
       trailing: isActive
@@ -53,13 +49,13 @@ class CustomDrawerItem extends StatelessWidget {
           ? Container(
               padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
               decoration: BoxDecoration(
-                color: AppColors.kAccentColor,
+                color: colors.secondary,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(
                 '${drawerItemModel.badgeCount}',
                 style: AppStyles.semibold10Style.copyWith(
-                  color: AppColors.kOnAccentColor,
+                  color: colors.onSecondary,
                   fontSize: 9,
                 ),
               ),

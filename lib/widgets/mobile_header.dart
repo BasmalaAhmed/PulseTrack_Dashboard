@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_button.dart';
@@ -77,13 +76,13 @@ class MobileHeader extends StatelessWidget {
                                   'Acme Engineering',
                                   style: AppStyles.medium12Style.copyWith(
                                     fontFamily: 'JetBrains_Mono',
-                                    color: AppColors.kTextSoftColor,
+                                    color: colors.onSurfaceVariant,
                                   ),
                                 ),
                                 const SizedBox(width: 4),
-                                const Icon(
+                                Icon(
                                   Icons.unfold_more_rounded,
-                                  color: AppColors.kGrey94Color,
+                                  color: colors.onSurfaceVariant,
                                   size: 14,
                                 ),
                               ],

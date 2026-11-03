@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pulse_track_dashboard/models/drawer_items.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/widgets/drawer_rail_item.dart';
 import 'package:pulse_track_dashboard/widgets/user_avatar.dart';
@@ -11,12 +10,13 @@ class DrawerRail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     final left = MediaQuery.viewPaddingOf(context).left;
     return Container(
       width: 72 + left,
-      decoration: const BoxDecoration(
-        color: AppColors.kSurfaceColor,
-        border: Border(right: BorderSide(color: AppColors.kBorderColor)),
+      decoration: BoxDecoration(
+        color: colors.surface,
+        border: Border(right: BorderSide(color: colors.outline)),
       ),
       child: SafeArea(
         right: false,
@@ -31,17 +31,17 @@ class DrawerRail extends StatelessWidget {
                 width: 36,
                 height: 36,
                 decoration: BoxDecoration(
-                  color: AppColors.kRaisedSurfaceColor,
+                  color: colors.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: AppColors.kBorderColor),
+                  border: Border.all(color: colors.outline),
                 ),
                 child: Center(
                   child: Container(
                     width: 8,
                     height: 8,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: AppColors.kAccentColor,
+                      color: colors.secondary,
                     ),
                   ),
                 ),

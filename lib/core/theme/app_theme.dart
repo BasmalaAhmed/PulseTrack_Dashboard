@@ -31,10 +31,11 @@ abstract class AppTheme {
 
   static const ColorScheme lightColorScheme = ColorScheme.light(
     // Main accent color
-    primary: Color(0xFFD97706),
+    primary: Color(0xFF0F172A),
+    onPrimary: Color(0XFFFFFFFF),
     // Secondary accent
-    secondary: Color(0xFF0F172A),
-    onSecondary: Color(0XFFFFFFFF),
+    secondary: Color(0xFFD97706),
+    onSecondary: Color(0xFF020617),
     secondaryContainer: Color(0xFFF1F5F9),
     onSecondaryContainer: Color(0xFF334155),
     tertiaryContainer: Color(0XFFECFDF5),

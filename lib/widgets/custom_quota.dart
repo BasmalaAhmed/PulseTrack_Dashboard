@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
-import 'package:pulse_track_dashboard/widgets/loading_bar.dart';
+import 'package:pulse_track_dashboard/widgets/progress_bar.dart';
 
 class CustomQuota extends StatelessWidget {
   const CustomQuota({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.kCardColor,
+        color: colors.surface,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.kBorderColor),
+        border: Border.all(color: colors.outline),
       ),
       child: Padding(
         padding: const EdgeInsets.all(12),
@@ -23,30 +23,30 @@ class CustomQuota extends StatelessWidget {
                 Text(
                   'Compute Quota',
                   style: AppStyles.semibold12Style.copyWith(
-                    color: AppColors.kIconLightColor,
+                    color: colors.onSurface,
                   ),
                 ),
                 const Spacer(),
                 Text(
                   '82%',
                   style: AppStyles.semibold12Style.copyWith(
-                    color: AppColors.kAccentLightColor,
+                    color: colors.secondary,
                     fontFamily: 'JetBrains Mono',
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 8),
-            LoadingBar(),
+            ProgressBar(),
             const SizedBox(height: 8),
             Row(
               children: [
-                Text('Tier: Enterprise', style: AppStyles.regular11Style),
+                Text('Tier: Enterprise', style: AppStyles.regular11Style(context)),
                 const Spacer(),
                 Text(
                   'Upgrade',
                   style: AppStyles.semibold11Style.copyWith(
-                    color: AppColors.kAccentLightColor,
+                    color: colors.secondary,
                   ),
                 ),
               ],

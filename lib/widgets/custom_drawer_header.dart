@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_images.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/pro_badge.dart';
@@ -11,6 +10,7 @@ class CustomDrawerHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return SizedBox(
       height: 56,
       child: Row(
@@ -34,7 +34,7 @@ class CustomDrawerHeader extends StatelessWidget {
                     maxLines: 1,
                     softWrap: false,
                     style: AppStyles.bold16Style.copyWith(
-                      color: AppColors.kNeutralColor,
+                      color: colors.onSurface,
                     ),
                   ),
                   SizedBox(width: 6),
