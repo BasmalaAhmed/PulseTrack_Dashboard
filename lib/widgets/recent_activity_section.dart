@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 import 'package:pulse_track_dashboard/widgets/recent_activity_footer.dart';
@@ -11,10 +10,11 @@ class RecentActivitySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.kCardColor,
-        border: Border.all(color: AppColors.kBorderColor),
+        color: Theme.of(context).cardColor,
+        border: Border.all(color: colors.outline),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -30,14 +30,14 @@ class RecentActivitySection extends StatelessWidget {
                       Text(
                         'Recent Activity & Audit Log',
                         style: AppStyles.bold14Style.copyWith(
-                          color: AppColors.kNeutralColor,
+                          color: colors.onSurface,
                         ),
                       ),
                       SizedBox(height: 2),
                       Text(
                         'Real-time repository commits, pipeline runs, and review gates',
                         style: AppStyles.regular12Style.copyWith(
-                          color: AppColors.kGrey94Color,
+                          color: colors.onSurfaceVariant,
                         ),
                       ),
                     ],
@@ -47,10 +47,10 @@ class RecentActivitySection extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: AppColors.kGreenColor.withValues(alpha: 0.1),
+                      color: colors.onTertiaryContainer.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(30),
                       border: Border.all(
-                        color: AppColors.kGreenColor.withValues(alpha: 0.2),
+                        color: colors.onTertiaryContainer.withValues(alpha: 0.2),
                       ),
                     ),
                     child: Padding(
@@ -63,13 +63,13 @@ class RecentActivitySection extends StatelessWidget {
                           CustomDot(
                             height: 8,
                             width: 8,
-                            color: AppColors.kGreenLightColor,
+                            color: colors.onTertiaryContainer,
                           ),
                           SizedBox(width: 6),
                           Text(
                             'Live Feed',
                             style: AppStyles.semibold11Style.copyWith(
-                              color: AppColors.kGreenLightColor,
+                              color: colors.onTertiaryContainer,
                             ),
                           ),
                         ],
@@ -80,7 +80,7 @@ class RecentActivitySection extends StatelessWidget {
               ],
             ),
           ),
-          Divider(color: AppColors.kBorderColor, height: 0),
+          Divider(color: colors.outlineVariant, height: 0),
           if (fillHeight)
             Expanded(
               child: Align(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 
 class RecentActivityItem extends StatelessWidget {
@@ -23,6 +22,7 @@ class RecentActivityItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -30,14 +30,20 @@ class RecentActivityItem extends StatelessWidget {
           width: 28,
           height: 28,
           decoration: ShapeDecoration(
-            color: iconColor ?? AppColors.kHighlightSurfaceColor,
+            color: iconColor ?? colors.surfaceContainerHighest,
             shape: OvalBorder(
-              side: BorderSide(color: iconBorder ?? AppColors.kBorderLightColor),
+              side: BorderSide(color: iconBorder ?? colors.outlineVariant),
             ),
           ),
           child: Padding(
             padding: const EdgeInsets.all(8),
-            child: SvgPicture.asset(icon),
+            child: SvgPicture.asset(
+              icon,
+              colorFilter: ColorFilter.mode(
+                colors.onSurfaceVariant,
+                BlendMode.srcIn,
+              ),
+            ),
           ),
         ),
         SizedBox(width: 12),
@@ -51,19 +57,19 @@ class RecentActivityItem extends StatelessWidget {
                     TextSpan(
                       text: user,
                       style: AppStyles.semibold12Style.copyWith(
-                        color: AppColors.kTextSoftColor,
+                        color: colors.onSurface,
                       ),
                     ),
                     TextSpan(
                       text: operation,
                       style: AppStyles.semibold12Style.copyWith(
-                        color: AppColors.kGrey94Color,
+                        color: colors.onSurfaceVariant,
                       ),
                     ),
                     TextSpan(
                       text: msg,
                       style: AppStyles.medium11Style.copyWith(
-                        color: msgColor ?? AppColors.kAccentLightColor,
+                        color: msgColor ?? colors.secondary,
                         fontFamily: fontFamily,
                       ),
                     ),
@@ -74,7 +80,7 @@ class RecentActivityItem extends StatelessWidget {
               Text(
                 details,
                 style: AppStyles.regular12Style.copyWith(
-                  color: AppColors.kGrey94Color,
+                  color: colors.onSurfaceVariant,
                 ),
               ),
             ],
@@ -82,9 +88,9 @@ class RecentActivityItem extends StatelessWidget {
         ),
         Text(
           time,
-          style: AppStyles.regular11Style.copyWith(
-            color: AppColors.kGrey64Color,
-          ),
+          style: AppStyles.regular11Style(
+            context,
+          ).copyWith(color: colors.onSurfaceVariant),
         ),
       ],
     );
