@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pulse_track_dashboard/models/priority_tasks_list_item_model.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_priority.dart';
 
@@ -21,9 +20,10 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: AppColors.kBorderColor)),
+        border: Border(bottom: BorderSide(color: colors.outlineVariant)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -39,8 +39,8 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4),
               ),
-              side: BorderSide(color: AppColors.kGrey33Color),
-              activeColor: AppColors.kAccentColor,
+              side: BorderSide(color: colors.outlineVariant),
+              activeColor: colors.secondary,
             ),
             SizedBox(width: 12),
             Expanded(
@@ -51,10 +51,10 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                     widget.priorityTasksListItemModel.title,
                     style: AppStyles.semibold12Style.copyWith(
                       color: isChecked
-                          ? AppColors.kGrey64Color
-                          : AppColors.kTextSoftColor,
+                          ? colors.onSurfaceVariant
+                          : colors.onSurface,
                       decoration: isChecked ? TextDecoration.lineThrough : null,
-                      decorationColor: AppColors.kGrey64Color,
+                      decorationColor: colors.onSurfaceVariant,
                     ),
                   ),
                   SizedBox(height: 4),
@@ -65,9 +65,9 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            color: AppColors.kHighlightSurfaceColor,
+                            color: colors.secondaryContainer,
                             borderRadius: BorderRadius.circular(4),
-                            border: Border.all(color: AppColors.kBorderLightColor),
+                            border: Border.all(color: colors.outlineVariant),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
@@ -77,9 +77,7 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                             child: Text(
                               widget.priorityTasksListItemModel.subject,
                               style: AppStyles.medium11Style.copyWith(
-                                color: isChecked
-                                    ? AppColors.kGrey94Color
-                                    : AppColors.kIconLightColor,
+                                color: colors.onSecondaryContainer,
                               ),
                             ),
                           ),
@@ -88,12 +86,12 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                         isChecked
                             ? FaIcon(
                                 FontAwesomeIcons.check,
-                                color: AppColors.kGreenLightColor,
+                                color: colors.onTertiaryContainer,
                                 size: 12,
                               )
                             : FaIcon(
                                 FontAwesomeIcons.calendar,
-                                color: AppColors.kGrey94Color,
+                                color: colors.onSurfaceVariant,
                                 size: 12,
                               ),
                         SizedBox(width: 4),
@@ -101,10 +99,10 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                           isChecked
                               ? 'Resolved'
                               : widget.priorityTasksListItemModel.date,
-                          style: AppStyles.regular11Style.copyWith(
+                          style: AppStyles.regular11Style(context).copyWith(
                             color: isChecked
-                                ? AppColors.kGreenLightColor
-                                : AppColors.kGrey94Color,
+                                ? colors.onTertiaryContainer
+                                : colors.onSurfaceVariant,
                           ),
                         ),
                       ],
@@ -114,15 +112,9 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
               ),
             ),
             CustomPriority(
-              color: isChecked
-                  ? AppColors.kGreenColor
-                  : widget.priorityTasksListItemModel.color,
               priority: isChecked
                   ? 'Done'
                   : widget.priorityTasksListItemModel.priority,
-              titleColor: isChecked
-                  ? AppColors.kGreenLightColor
-                  : widget.priorityTasksListItemModel.titleColor,
             ),
           ],
         ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dotted_button.dart';
 import 'package:pulse_track_dashboard/widgets/priority_tasks_list.dart';
@@ -10,10 +9,11 @@ class PriorityTasksSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.kCardColor,
-        border: Border.all(color: AppColors.kBorderColor),
+        color: Theme.of(context).cardColor,
+        border: Border.all(color: colors.outline),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -29,14 +29,14 @@ class PriorityTasksSection extends StatelessWidget {
                       Text(
                         'Priority Tasks & Milestones',
                         style: AppStyles.bold14Style.copyWith(
-                          color: AppColors.kNeutralColor,
+                          color: colors.onSurface,
                         ),
                       ),
                       SizedBox(height: 2),
                       Text(
                         'Immediate action items requiring lead sign-off',
                         style: AppStyles.regular12Style.copyWith(
-                          color: AppColors.kGrey94Color,
+                          color: colors.onSurfaceVariant,
                         ),
                       ),
                     ],
@@ -45,22 +45,25 @@ class PriorityTasksSection extends StatelessWidget {
                 Text(
                   'View All (38)',
                   style: AppStyles.semibold12Style.copyWith(
-                    color: AppColors.kAccentLightColor,
+                    color: colors.secondary,
                   ),
                 ),
               ],
             ),
           ),
-          Divider(color: AppColors.kBorderColor, height: 0),
+          Divider(color: colors.outlineVariant, height: 0),
           if (fillHeight)
             Expanded(
-              child: Align(alignment: Alignment.topCenter, child: PriorityTasksList()),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: PriorityTasksList(),
+              ),
             )
           else
             PriorityTasksList(),
           Container(
             decoration: BoxDecoration(
-              color: AppColors.kSurfaceColor,
+              color: colors.surface,
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
             ),
             child: Padding(
