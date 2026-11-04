@@ -4,7 +4,9 @@ import 'package:pulse_track_dashboard/widgets/dashboard_content.dart';
 import 'package:pulse_track_dashboard/widgets/desktop_header.dart';
 
 class DesktopDashboardLayout extends StatelessWidget {
-  const DesktopDashboardLayout({super.key});
+  const DesktopDashboardLayout({super.key, required this.onThemeToggle});
+
+  final VoidCallback onThemeToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,12 @@ class DesktopDashboardLayout extends StatelessWidget {
             Expanded(
               flex: 5,
               child: SingleChildScrollView(
-                child: Column(children: [DesktopHeader(), DashboardContent()]),
+                child: Column(
+                  children: [
+                    DesktopHeader(onThemeToggle: onThemeToggle),
+                    DashboardContent(),
+                  ],
+                ),
               ),
             ),
           ],

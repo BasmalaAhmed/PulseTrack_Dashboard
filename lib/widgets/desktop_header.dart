@@ -5,9 +5,12 @@ import 'package:pulse_track_dashboard/widgets/custom_notification_button.dart';
 import 'package:pulse_track_dashboard/widgets/custom_drop_down_menu.dart';
 import 'package:pulse_track_dashboard/widgets/custom_text_field.dart';
 import 'package:pulse_track_dashboard/widgets/search_icon_button.dart';
+import 'package:pulse_track_dashboard/widgets/theme_icon.dart';
 
 class DesktopHeader extends StatelessWidget {
-  const DesktopHeader({super.key});
+  const DesktopHeader({super.key, required this.onThemeToggle});
+
+  final VoidCallback onThemeToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +76,8 @@ class DesktopHeader extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   const CustomNotificationButton(),
+                  const SizedBox(width: 8),
+                  ThemeIcon(onThemeToggle: onThemeToggle),
                   const SizedBox(width: 10),
                   SizedBox(
                     height: 20,
@@ -87,7 +92,6 @@ class DesktopHeader extends StatelessWidget {
                       color: colors.onSurface,
                     ),
                     iconColor: colors.onSurface,
-                    
                   ),
                   const SizedBox(width: 10),
                   CustomButton(
@@ -108,3 +112,4 @@ class DesktopHeader extends StatelessWidget {
     );
   }
 }
+

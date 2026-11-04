@@ -4,26 +4,39 @@ import 'package:pulse_track_dashboard/core/theme/app_theme.dart';
 import 'package:pulse_track_dashboard/view/dashboard_view.dart';
 
 void main() {
-  runApp(DevicePreview(enabled: false, builder: (context) => const PulseTrackApp()));
+  runApp(
+    DevicePreview(enabled: false, builder: (context) => const PulseTrackApp()),
+  );
 }
 
-class PulseTrackApp extends StatelessWidget {
+class PulseTrackApp extends StatefulWidget {
   const PulseTrackApp({super.key});
+
+  @override
+  State<PulseTrackApp> createState() => _PulseTrackAppState();
+}
+
+class _PulseTrackAppState extends State<PulseTrackApp> {
+  ThemeMode _themeMode = ThemeMode.light;
+  
+  void _toggleTheme() {
+    setState(() {
+      _themeMode = _themeMode == ThemeMode.light
+          ? ThemeMode.dark
+          : ThemeMode.light;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       locale: DevicePreview.locale(context),
-      // builder: DevicePreview.appBuilder,
-      builder: (context, child) {
-        debugPrint('screen width = ${MediaQuery.sizeOf(context).width.round()}');
-        return child!;
-      },
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
-      home: const DashboardView(),
+      themeMode: _themeMode,
+      home: DashboardView(onThemeToggle: _toggleTheme,),
     );
   }
 }

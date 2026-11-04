@@ -5,9 +5,11 @@ import 'package:pulse_track_dashboard/widgets/custom_drop_down_menu.dart';
 import 'package:pulse_track_dashboard/widgets/custom_notification_button.dart';
 import 'package:pulse_track_dashboard/widgets/custom_text_field.dart';
 import 'package:pulse_track_dashboard/widgets/search_icon_button.dart';
+import 'package:pulse_track_dashboard/widgets/theme_icon.dart';
 
 class TabletHeader extends StatelessWidget {
-  const TabletHeader({super.key});
+  const TabletHeader({super.key, required this.onThemeToggle});
+  final VoidCallback onThemeToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +75,8 @@ class TabletHeader extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   const CustomNotificationButton(),
+                  const SizedBox(width: 8),
+                  ThemeIcon(onThemeToggle: onThemeToggle),
                   const SizedBox(width: 10),
                   SizedBox(
                     height: 20,

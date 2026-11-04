@@ -4,7 +4,8 @@ import 'package:pulse_track_dashboard/widgets/drawer_rail.dart';
 import 'package:pulse_track_dashboard/widgets/tablet_header.dart';
 
 class TabletDashboardLayout extends StatelessWidget {
-  const TabletDashboardLayout({super.key});
+  const TabletDashboardLayout({super.key, required this.onThemeToggle});
+  final VoidCallback onThemeToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,12 @@ class TabletDashboardLayout extends StatelessWidget {
         Expanded(
           flex: 5,
           child: SingleChildScrollView(
-            child: Column(children: [TabletHeader(), DashboardContent()]),
+            child: Column(
+              children: [
+                TabletHeader(onThemeToggle: onThemeToggle),
+                DashboardContent(),
+              ],
+            ),
           ),
         ),
       ],

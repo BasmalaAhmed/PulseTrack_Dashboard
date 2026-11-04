@@ -6,7 +6,8 @@ import 'package:pulse_track_dashboard/widgets/priority_tasks_and_recent_activity
 import 'package:pulse_track_dashboard/widgets/weekly_productivity_and_project_health_section.dart';
 
 class MobileDashboardLayout extends StatelessWidget {
-  const MobileDashboardLayout({super.key});
+  const MobileDashboardLayout({super.key, required this.onThemeToggle});
+  final VoidCallback onThemeToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class MobileDashboardLayout extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            MobileHeader(),
+            MobileHeader(onThemeToggle: onThemeToggle),
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(

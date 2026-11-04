@@ -6,10 +6,12 @@ import 'package:pulse_track_dashboard/widgets/custom_button.dart';
 import 'package:pulse_track_dashboard/widgets/custom_dot.dart';
 import 'package:pulse_track_dashboard/widgets/custom_notification_button.dart';
 import 'package:pulse_track_dashboard/widgets/pro_badge.dart';
+import 'package:pulse_track_dashboard/widgets/theme_icon.dart';
 import 'package:pulse_track_dashboard/widgets/user_avatar.dart';
 
 class MobileHeader extends StatelessWidget {
-  const MobileHeader({super.key});
+  const MobileHeader({super.key, required this.onThemeToggle});
+  final VoidCallback onThemeToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +95,8 @@ class MobileHeader extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     const CustomNotificationButton(),
+                    const SizedBox(width: 8),
+                    ThemeIcon(onThemeToggle: onThemeToggle),
                     const SizedBox(width: 10),
                     const UserAvatar(),
                   ],
@@ -103,9 +107,7 @@ class MobileHeader extends StatelessWidget {
                 'Welcome back, Alex',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: AppStyles.bold16Style.copyWith(
-                  color: colors.onSurface,
-                ),
+                style: AppStyles.bold16Style.copyWith(color: colors.onSurface),
               ),
               const SizedBox(height: 4),
               FittedBox(
