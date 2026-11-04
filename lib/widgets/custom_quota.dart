@@ -41,7 +41,7 @@ class CustomQuota extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               children: [
-                Text('Tier: Enterprise', style: AppStyles.regular11Style(context)),
+                Text('Tier: Enterprise', style: AppStyles.regular11Style),
                 const Spacer(),
                 Text(
                   'Upgrade',

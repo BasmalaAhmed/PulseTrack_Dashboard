@@ -52,7 +52,7 @@ class PieChartIndicatorItem extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               child: Text(
                 '$percent%',
-                style: AppStyles.regular11Style(context).copyWith(
+                style: AppStyles.regular11Style.copyWith(
                   color: colors.onSecondaryContainer,
                   fontFamily: 'JetBrains_Mono',
                 ),

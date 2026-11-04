@@ -88,9 +88,7 @@ class RecentActivityItem extends StatelessWidget {
         ),
         Text(
           time,
-          style: AppStyles.regular11Style(
-            context,
-          ).copyWith(color: colors.onSurfaceVariant),
+          style: AppStyles.regular11Style.copyWith(color: colors.onSurfaceVariant),
         ),
       ],
     );

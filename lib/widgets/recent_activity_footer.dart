@@ -20,9 +20,7 @@ class RecentActivityFooter extends StatelessWidget {
             Expanded(
               child: Text(
                 'Audited by PulseTrack Governance Engine',
-                style: AppStyles.regular11Style(
-                  context,
-                ).copyWith(color: colors.onSurfaceVariant),
+                style: AppStyles.regular11Style.copyWith(color: colors.onSurfaceVariant),
                 overflow: TextOverflow.ellipsis,
               ),
             ),

@@ -11,21 +11,21 @@ class ProjectHealthLegend extends StatelessWidget {
       children: [
         const PieChartIndicatorItem(
           title: 'On Track',
-          dotColor: AppColors.kGreenColor,
+          dotColor: AppColors.kGreenChartColor,
           projectsNum: 9,
           percent: 65,
         ),
         const SizedBox(height: 10),
         const PieChartIndicatorItem(
           title: 'At Risk',
-          dotColor: AppColors.kAccentLightColor,
+          dotColor: AppColors.kOrangeChartColor,
           projectsNum: 3,
           percent: 22,
         ),
         const SizedBox(height: 10),
         const PieChartIndicatorItem(
           title: 'Delayed',
-          dotColor: AppColors.kDangerColor,
+          dotColor: AppColors.kRedChartColor,
           projectsNum: 2,
           percent: 13,
         ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 
 class CustomDot extends StatelessWidget {
   const CustomDot({super.key, required this.height, required this.width, this.color, this.isBorder = false});
@@ -10,14 +9,15 @@ class CustomDot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
               height: height,
               width: height,
               decoration: ShapeDecoration(
                 shape: OvalBorder(
-                  side: isBorder ? BorderSide(color: AppColors.surface(context), width: 2) : BorderSide.none,
+                  side: isBorder ? BorderSide(color: colors.surface, width: 2) : BorderSide.none,
                 ),
-                color: color ?? Theme.of(context).colorScheme.secondary,
+                color: color ?? colors.secondary,
               ),
             );
   }

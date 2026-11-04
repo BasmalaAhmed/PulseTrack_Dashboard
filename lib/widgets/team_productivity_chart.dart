@@ -1,22 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 
 class TeamProductivityChart extends StatelessWidget {
   const TeamProductivityChart({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return SizedBox(
       width: 280,
       height: 100,
       child: CustomPaint(
-        painter: ChartPainter(),
+        painter: ChartPainter(
+          lineColor: colors.secondary,
+          areaStartColor: colors.secondary.withValues(
+            alpha: isDark ? 0.25 : 0.18,
+          ),
+          areaEndColor: colors.secondary.withValues(alpha: 0),
+        ),
       ),
     );
   }
 }
 
 class ChartPainter extends CustomPainter {
+  final Color lineColor, areaStartColor, areaEndColor;
+
+  ChartPainter({
+    super.repaint,
+    required this.lineColor,
+    required this.areaStartColor,
+    required this.areaEndColor,
+  });
+
   @override
   void paint(Canvas canvas, Size size) {
     final points = [
@@ -28,8 +44,7 @@ class ChartPainter extends CustomPainter {
       Offset(size.width * 0.98, size.height * 0.02),
     ];
 
-    final linePath = Path()
-      ..moveTo(points.first.dx, points.first.dy);
+    final linePath = Path()..moveTo(points.first.dx, points.first.dy);
 
     for (final point in points.skip(1)) {
       linePath.lineTo(point.dx, point.dy);
@@ -45,19 +60,14 @@ class ChartPainter extends CustomPainter {
       ..shader = LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
-        colors: [
-          AppColors.kMiniChartAreaStartColor,
-          AppColors.kMiniChartAreaEndColor,
-        ],
-      ).createShader(
-        Rect.fromLTWH(0, 0, size.width, size.height),
-      );
+        colors: [areaStartColor, areaEndColor],
+      ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
 
     canvas.drawPath(areaPath, areaPaint);
 
     // Chart line
     final linePaint = Paint()
-      ..color = AppColors.kAccentColor
+      ..color = lineColor
       ..strokeWidth = 3
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round

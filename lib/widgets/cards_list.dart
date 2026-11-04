@@ -64,7 +64,7 @@ class CardsList extends StatelessWidget {
               const SizedBox(width: 12),
               Text(
                 '4 near deadlines',
-                style: AppStyles.regular11Style(context),
+                style: AppStyles.regular11Style,
               ),
             ],
           ),
@@ -89,7 +89,7 @@ class CardsList extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         '12 completed today',
-                        style: AppStyles.regular11Style(context),
+                        style: AppStyles.regular11Style,
                       ),
                     ),
                   ),
@@ -177,7 +177,7 @@ class CardsList extends StatelessWidget {
               const SizedBox(width: 12),
               Text(
                 'velocity acceleration',
-                style: AppStyles.regular11Style(context),
+                style: AppStyles.regular11Style,
               ),
             ],
           ),

@@ -99,7 +99,7 @@ class _PriorityTasksListItemState extends State<PriorityTasksListItem> {
                           isChecked
                               ? 'Resolved'
                               : widget.priorityTasksListItemModel.date,
-                          style: AppStyles.regular11Style(context).copyWith(
+                          style: AppStyles.regular11Style.copyWith(
                             color: isChecked
                                 ? colors.onTertiaryContainer
                                 : colors.onSurfaceVariant,

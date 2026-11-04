@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pulse_track_dashboard/models/card_model.dart';
-import 'package:pulse_track_dashboard/utils/app_colors.dart';
 import 'package:pulse_track_dashboard/utils/app_styles.dart';
 import 'package:pulse_track_dashboard/widgets/custom_icon_container.dart';
 import 'package:pulse_track_dashboard/widgets/team_productivity_chart.dart';
@@ -15,7 +14,7 @@ class CustomCard extends StatelessWidget {
     return Card(
       elevation: 0,
       margin: EdgeInsets.zero,
-      color: AppColors.card(context),
+      color: Theme.of(context).cardColor,
       shape: RoundedRectangleBorder(
         side: BorderSide(color: colors.outline),
         borderRadius: BorderRadius.circular(12),

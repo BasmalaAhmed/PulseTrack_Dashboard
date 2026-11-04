@@ -61,19 +61,19 @@ class _ProjectHealthChartState extends State<ProjectHealthChart> {
       sections: [
         PieChartSectionData(
           value: 9,
-          color: AppColors.kGreenDarkColor,
+          color: AppColors.kGreenChartColor,
           radius: activeIndex == 0 ? 28 : 20,
           showTitle: false,
         ),
         PieChartSectionData(
           value: 3,
-          color: AppColors.kAccentColor,
+          color: AppColors.kOrangeChartColor,
           radius: activeIndex == 1 ? 28 : 20,
           showTitle: false,
         ),
         PieChartSectionData(
           value: 2,
-          color: AppColors.kDangerColor,
+          color: AppColors.kRedChartColor,
           radius: activeIndex == 2 ? 28 : 20,
           showTitle: false,
         ),

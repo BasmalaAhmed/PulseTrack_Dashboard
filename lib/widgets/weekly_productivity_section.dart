@@ -24,9 +24,7 @@ class WeeklyProductivitySection extends StatelessWidget {
           children: [
             Text(
               'Weekly Productivity & Sprint Velocity',
-              style: AppStyles.bold14Style.copyWith(
-                color: colors.onSurface,
-              ),
+              style: AppStyles.bold14Style.copyWith(color: colors.onSurface),
             ),
             Text(
               'Comparison between planned commitments and completed outputs',
@@ -94,7 +92,7 @@ class WeeklyProductivitySection extends StatelessWidget {
             SizedBox(height: 8),
             Text(
               'Sprint #48 ends in 4 days',
-              style: AppStyles.regular11Style(context).copyWith(
+              style: AppStyles.regular11Style.copyWith(
                 color: colors.onSurfaceVariant,
                 fontFamily: 'JetBrains_Mono',
               ),

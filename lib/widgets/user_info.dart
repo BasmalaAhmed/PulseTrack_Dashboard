@@ -17,7 +17,7 @@ class UserInfo extends StatelessWidget {
           color: colors.onSurface,
         ),
       ),
-      subtitle: Text('Senior Tech', style: AppStyles.regular11Style(context)),
+      subtitle: Text('Senior Tech', style: AppStyles.regular11Style),
       trailing: Icon(
         Icons.keyboard_double_arrow_left_rounded,
         color: colors.onSurfaceVariant,

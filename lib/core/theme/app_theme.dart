@@ -10,7 +10,7 @@ abstract class AppTheme {
     primary: Color(0xFF020617),
     primaryContainer: Color(0xFF25344D),
     // Secondary accent
-    secondary: Color(0xFFF59E0B),
+    secondary: Color(0XFFF59E0B),
     onSecondary: Color(0XFF020617),
     secondaryContainer: Color(0xFF1A2232),
     onSecondaryContainer: Color(0xFFCBD5E1),
@@ -36,7 +36,7 @@ abstract class AppTheme {
     onPrimary: Color(0XFFFFFFFF),
     primaryContainer: Color(0xFF263249),
     // Secondary accent
-    secondary: Color(0xFFD97706),
+    secondary: Color(0XFFF59E0B),
     onSecondary: Color(0xFF020617),
     secondaryContainer: Color(0xFFF1F5F9),
     onSecondaryContainer: Color(0xFF334155),
