@@ -12,7 +12,7 @@ class CustomDot extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
     return Container(
               height: height,
-              width: height,
+              width: width,
               decoration: ShapeDecoration(
                 shape: OvalBorder(
                   side: isBorder ? BorderSide(color: colors.surface, width: 2) : BorderSide.none,

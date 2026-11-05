@@ -1,30 +1,54 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:pulse_track_dashboard/main.dart';
+import 'package:pulse_track_dashboard/view/dashboard_view.dart';
+import 'package:pulse_track_dashboard/widgets/theme_icon.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const PulseTrackApp());
+  testWidgets('theme button switches between light and dark', (tester) async {
+    tester.view.physicalSize = const Size(1440, 1200);
+    tester.view.devicePixelRatio = 1;
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    await tester.pumpWidget(
+      DevicePreview(
+        enabled: false,
+        builder: (context) => const PulseTrackApp(),
+      ),
+    );
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    final dashboard = find.byType(DashboardView);
+    final themeButton = find.byType(ThemeIcon);
+
+    expect(
+      Theme.of(tester.element(dashboard)).brightness,
+      Brightness.light,
+    );
+    expect(
+      find.descendant(
+        of: themeButton,
+        matching: find.byIcon(Icons.dark_mode_rounded),
+      ),
+      findsOneWidget,
+    );
+
+    await tester.tap(themeButton);
+    await tester.pumpAndSettle();
+
+    expect(
+      Theme.of(tester.element(dashboard)).brightness,
+      Brightness.dark,
+    );
+    expect(
+      find.descendant(
+        of: themeButton,
+        matching: find.byIcon(Icons.light_mode_rounded),
+      ),
+      findsOneWidget,
+    );
   });
 }

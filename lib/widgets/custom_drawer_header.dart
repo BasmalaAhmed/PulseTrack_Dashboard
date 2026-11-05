@@ -15,34 +15,33 @@ class CustomDrawerHeader extends StatelessWidget {
       height: 56,
       child: Row(
         children: [
-          Flexible(
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: SvgPicture.asset(AppImages.icon, width: 40, height: 40),
-            ),
-          ),
+          SvgPicture.asset(AppImages.icon, width: 40, height: 40),
           const SizedBox(width: 12),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'PulseTrack',
-                    maxLines: 1,
-                    softWrap: false,
-                    style: AppStyles.bold16Style.copyWith(
-                      color: colors.onSurface,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        'PulseTrack',
+                        maxLines: 1,
+                        softWrap: false,
+                        style: AppStyles.bold16Style.copyWith(
+                          color: colors.onSurface,
+                        ),
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 6),
-                  ProBadge(),
-                ],
-              ),
-              widget
-            ],
+                    SizedBox(width: 6),
+                    ProBadge(),
+                  ],
+                ),
+                widget
+              ],
+            ),
           ),
         ],
       ),
