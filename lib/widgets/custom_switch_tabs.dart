@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pulse_track_dashboard/utils/app_styles.dart';
+import 'package:pulse_track_dashboard/widgets/switch_tabs_item.dart';
 
-class CustomSwitchTabs extends StatelessWidget {
+class CustomSwitchTabs extends StatefulWidget {
   const CustomSwitchTabs({super.key});
+
+  @override
+  State<CustomSwitchTabs> createState() => _CustomSwitchTabsState();
+}
+
+class _CustomSwitchTabsState extends State<CustomSwitchTabs> {
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,42 +23,28 @@ class CustomSwitchTabs extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(4),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: colors.secondary.withValues(alpha: 0.12),
-                borderRadius: BorderRadius.circular(6),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 4,
-                ),
-                child: Text(
-                  'Story Points',
-                  style: AppStyles.semibold12Style.copyWith(
-                    color: colors.secondary,
-                  ),
-                ),
-              ),
+            SwitchTabsItem(
+              isActive: selectedIndex == 0,
+              onTap: () => setState(() {
+                selectedIndex = 0;
+              }),
+              title: 'Story Points',
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              child: Text(
-                'Hours',
-                style: AppStyles.medium12Style.copyWith(
-                  color: colors.onSurfaceVariant,
-                ),
-              ),
+            SwitchTabsItem(
+              isActive: selectedIndex == 1,
+              onTap: () => setState(() {
+                selectedIndex = 1;
+              }),
+              title: 'Hours',
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              child: Text(
-                'Commits',
-                style: AppStyles.medium12Style.copyWith(
-                  color: colors.onSurfaceVariant,
-                ),
-              ),
+            SwitchTabsItem(
+              isActive: selectedIndex == 2,
+              onTap: () => setState(() {
+                selectedIndex = 2;
+              }),
+              title: 'Commits',
             ),
           ],
         ),
